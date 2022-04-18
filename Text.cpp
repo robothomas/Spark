@@ -82,16 +82,7 @@ void Text::setText(const char *words) {
         delete [] italicized;
         delete [] underlined;
 
-        text = new char[len];
-
-        bold = new bool[len];
-        setBold(false);
-
-        italicized = new bool[len];
-        setItalics(false);
-
-        underlined = new bool[len];
-        setUnderline(false);
+        setDefault(len);
     }
 
     copyCharArray(text, words, len);
