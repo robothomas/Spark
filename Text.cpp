@@ -1,7 +1,7 @@
 #include <Text.h>
 #include <string>
 
-// Helper function that finds the length of a given dynamically allocatedchar string
+// Helper function that finds the length of a given dynamically allocated char string
 int findLength(const char *c) {
     int length = 0;
     while (c[length++]) {}

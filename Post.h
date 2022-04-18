@@ -1,3 +1,6 @@
+#ifndef __POST_H__
+#define __POST_H__
+
 #include <Post.h>
 
 class Post {
@@ -9,3 +12,5 @@ class Post {
 
     void display();
 };
+
+#endif
