@@ -125,3 +125,11 @@ void Account::expand_saved_communities(){
     saved_communities = tmp;
 }
 
+//Read/write
+void Account::read_from(ifstream filestream){
+
+}
+void Account::write_to(){
+    
+}
+
