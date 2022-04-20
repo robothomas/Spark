@@ -23,9 +23,9 @@ Community::Community(Text *t, Text *d){
 Text Community::get_title(){ 
     return title;
 }
-void Community::change_title(Text *t){
-    delete [] title;
-    title = t;
+void Community::change_title(string t){
+    title.clear();
+    title += t;
 }
 
 //Description
@@ -71,4 +71,10 @@ void Community::expand_posts(){
     posts = tmp;
 }
 
+//Read/write
+void Community::read_from(ifstream filestream){
 
+}
+void Community::write_to(){
+
+}
