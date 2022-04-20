@@ -1,4 +1,4 @@
-#include <Text.h>
+#include "Text.h"
 #include <string>
 
 // Helper function that finds the length of a given dynamically allocated char string

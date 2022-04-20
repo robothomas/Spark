@@ -1,16 +1,22 @@
 #ifndef __POST_H__
 #define __POST_H__
 
-#include <Post.h>
+#include <string>
+#include "Post.h"
+#include "Text.h"
 
 class Post {
     int id;
-    Post(int id_num; int communityID; string title);
-    Post(int id_num; int communityID; string title; string description);
-    Post(int id_num; int communityIDs[]; string title);
-    Post(int id_num; int communityIDs[]; string title; string description);
-
-    void display();
+    int *communityIDs;
+    string title;
+    Text description;
+    Post(int id_num; int communityID; string postTitle);
+    Post(int id_num; int communityID; string postTitle; Text postDescription);
+    Post(int id_num; int *communityIDNums; string postTitle);
+    Post(int id_num; int *communityIDNums; string postTitle; Text postDescription);
+    int get_id();
+    string get_title();
+    Text get_description();
 };
 
 #endif
