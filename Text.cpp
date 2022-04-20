@@ -1,5 +1,6 @@
 #include "Text.h"
 #include <string>
+#include <cstring>
 
 // Helper function that finds the length of a given dynamically allocated char string
 int findLength(const char *c) {
@@ -30,6 +31,11 @@ Text::Text(const char *words, int sizeFont) : fontSize(sizeFont) {
     int length = findLength(words);
     setDefault(length);
     copyCharArray(text, words, len);
+}
+
+Text::Text(string words) {
+    setDefault(words.length());
+    copyCharArray(text, words.c_str()); // alternatively, apparently strcpy() already does the exact same thing
 }
 
 Text::Text(const Text &otherText) {

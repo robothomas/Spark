@@ -14,6 +14,7 @@ class Text {
         Text(const char *words);
         Text(const char *words, int sizeFont);
         Text(const Text &otherText);
+        Text(string words);
         int getLength() {return len;}
         int getFontSize() {return fontSize;}
         char *getTextInfo(); // sends text information with the char array, boldness, italicization, and underlining of each char
@@ -23,6 +24,7 @@ class Text {
         void setDefault(int length, int sizeFont);
         void setText();
         void setText(const char *words);
+        void setText(string words);
         void setBold(bool isBold);
         void setBold(bool isBold, int start, int end);
         void setItalics(bool isItalicized);
