@@ -25,6 +25,6 @@ public:
     void expand_your_posts();
     void expand_saved_posts();
     void expand_saved_communities();
-    
+    void display();
 
 }
