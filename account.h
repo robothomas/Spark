@@ -31,6 +31,8 @@ public:
     void expand_your_posts();
     void expand_saved_posts();
     void expand_saved_communities();
+    void read_from(ifstream filestream);
+    void write_to();
     void display();
 
 }
