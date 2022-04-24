@@ -2,22 +2,30 @@
 #define __TEXT_H__
 
 class Text {
-    int len;
-    int fontSize;
-    char *text;
-    bool *bold;
-    bool *italicized;
-    bool *underlined;
+    private:
+        char *text;
+        bool *bold;
+        bool *italicized;
+        bool *underlined;
+        int findLength(const char *c);
+        void copyCharArray(char *&to, const char *&from, int length); // may be replaced by strcpy soon
+        void copyBoolArray(bool *&to, const bool *&from, int length);
+        void setBoolSecton(bool *&array, bool val, int start, int end);
+        void setBoolSecton(bool *&array, bool val, int length);
 
     public:
+        int len;
+        int fontSize;
         Text();
         Text(const char *words);
         Text(const char *words, int sizeFont);
         Text(const Text &otherText);
         Text(string words);
-        int getLength() {return len;}
-        int getFontSize() {return fontSize;}
-        char *getTextInfo(); // sends text information with the char array, boldness, italicization, and underlining of each char
+        Text(string words, int sizeFont);
+        const char *getText();
+        const bool *getBold();
+        const bool *getItalicized();
+        const bool *getUnderlined();
         void read_from();
         void write_to();
         void setDefault(int length);

@@ -3,14 +3,20 @@
 #include <cstring>
 
 // Helper function that finds the length of a given dynamically allocated char string
-int findLength(const char *c) {
+int Text::findLength(const char *c) {
     int length = 0;
     while (c[length++]) {}
     return length;
 }
 
 // Copies one dynamically allocated char array to another
-void copyCharArray(char *&to, const char *&from, int length) {
+void Text::copyCharArray(char *&to, const char *&from, int length) {
+    for (int i = 0; i < length; i++) {
+        to[i] = from[i];
+    }
+}
+
+void Text::copyBoolArray(bool *&to, const bool *&from, int length) {
     for (int i = 0; i < length; i++) {
         to[i] = from[i];
     }
@@ -34,13 +40,38 @@ Text::Text(const char *words, int sizeFont) : fontSize(sizeFont) {
 }
 
 Text::Text(string words) {
+    setDefault(words.length(), 20);
+    //strcpy(text, words.c_str);
+    copyCharArray(text, words.c_str()); // alternatively, apparently strcpy() already does the exact same thing
+}
+
+Text::Text(string words, sizeFont) : fontSize(sizeFont) {
     setDefault(words.length());
     copyCharArray(text, words.c_str()); // alternatively, apparently strcpy() already does the exact same thing
 }
 
 Text::Text(const Text &otherText) {
     setDefault(otherText.len, otherText.fontSize);
-    copyCharArray(text, otherText, len);
+    copyCharArray(text, otherText.text, len);
+    copyBoolArray(bold, otherText.bold, len);
+    copyBoolArray(bold, otherText.italicized, len);
+    copyBoolArray(bold, otherText.underlined, len);
+}
+
+const char *getText() {
+    return text;
+}
+
+const bool *getBold() {
+    return bold;
+}
+
+const bool *getItalicized() {
+    return italicized;
+}
+
+const bool *getUnderlined() {
+    return underlined;
 }
 
 // Sets text to a default state (excluding font size). Assumes that all memory is unallocated or deallocated
@@ -95,14 +126,14 @@ void Text::setText(const char *words) {
 }
 
 // Helper function that sets a particular part of a dynamically allocated bool array to a particular value
-void setBoolSecton(bool *&array, bool val, int start, int end) {
+void Text::setBoolSecton(bool *&array, bool val, int start, int end) {
     for (int i = start; i <= end; i++) {
         array[i] = val;
     }
 }
 
 // Helper function to set entire bool array to a particular value
-void setBoolSecton(bool *&array, bool val, int length) {
+void Text::setBoolSecton(bool *&array, bool val, int length) {
     for (int i = 0; i < length; i++) {
         array[i] = val;
     }
