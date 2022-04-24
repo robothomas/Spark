@@ -1,0 +1,22 @@
+- View:
+  style:
+    width: 19%
+    height: 70%
+    backgroundColor: yellow
+    position: absolute
+    top: 5%
+    left: {left}
+    borderWidth: 5%
+    borderRadius: 100%
+
+- View: 
+  style:
+    width: 11%
+    height: 30%
+    backgroundColor: gray
+    borderWidth: 2
+    borderBottomLeftRadius: 10
+    borderBottomRightRadius: 10
+    position: absolute
+    top: 70%
+    left: {left} + 4.5%
