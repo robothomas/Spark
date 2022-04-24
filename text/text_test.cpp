@@ -1,25 +1,32 @@
 #include "text.h"
 #include <cassert>
+#include <iostream>
+using namespace std;
 
 void testDefinition() {
     Text t0;
+    assert(t0.getText()[0] == ' ');
 
     char *words = new char[10];
-    words[3] = 'i'; 
+    
+    for (int i = 0; i < 10; i += 2) {
+        words[i] = 'i'; 
+        words[i + 1] = 'j';
+    } 
 
     Text t1(words);
-    assert(t1.getText()[3] == 'i');
+    assert(t1.getText()[2] == 'i');
     
     Text t2(words, 15);
-    assert(t2.getText()[3] == 'i');
+    assert(t2.getText()[2] == 'i');
     assert(t2.fontSize == 15);
 
     Text t3("hello");
     assert(t3.getText()[2] == 'l');
 
     Text t4("hello", 15);
-    assert(t2.getText()[3] == 'l');
-    assert(t2.fontSize == 15);
+    assert(t4.getText()[3] == 'l');
+    assert(t4.fontSize == 15);
 
     delete [] words;
 }
@@ -44,7 +51,36 @@ void testDefault() {
     assert(t2.getUnderlined()[18] == false);
 }
 
+void testSetText() {
+    char *words = new char[6];
+    words[0] = 'h';
+    words[1] = 'e';
+    words[2] = 'l';
+    words[3] = 'l';
+    words[4] = 'o';
+    words[5] = '\0';
+
+    Text t0;
+    t0.setText(words);
+    assert(t0.len == 6);
+
+    for (int i = 0; i < 6; i++) {
+        assert(t0.getText()[i] == words[i]);
+    }
+
+    Text t1;
+    t1.setText("hello");
+
+    assert(t1.len == 6);
+
+    for (int i = 0; i < 6; i++) {
+        assert(t1.getText()[i] == words[i]);
+    }
+    
+}
+
 int main() {
     testDefinition();
     testDefault();
+    testSetText();
 }

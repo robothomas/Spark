@@ -16,6 +16,13 @@ void Text::copyCharArray(char *&to, const char *&from, int length) {
     }
 }
 
+// Copies a string to a dynamically allocated char array
+void Text::copyCharArray(char *&to, const string &from, int length) {
+    for (int i = 0; i < length; i++) {
+        to[i] = from[i];
+    }
+}
+
 void Text::copyBoolArray(bool *&to, const bool *&from, int length) {
     for (int i = 0; i < length; i++) {
         to[i] = from[i];
@@ -42,14 +49,15 @@ Text::Text(const char *words, int sizeFont) : fontSize(sizeFont) {
 Text::Text(string words) {
     setDefault(words.length(), 20);
     //strcpy(text, words.c_str);
-    copyCharArray(text, words.c_str()); // alternatively, apparently strcpy() already does the exact same thing
+    copyCharArray(text, words, len); // alternatively, apparently strcpy() already does the exact same thing
 }
 
-Text::Text(string words, sizeFont) : fontSize(sizeFont) {
+Text::Text(string words, int sizeFont) : fontSize(sizeFont) {
     setDefault(words.length());
-    copyCharArray(text, words.c_str()); // alternatively, apparently strcpy() already does the exact same thing
+    copyCharArray(text, words, len); // alternatively, apparently strcpy() already does the exact same thing
 }
 
+/* Cannot Work! - cannot bind non-const lvalue reference of type ‘const bool*&’ to an rvalue of type ‘const bool*’
 Text::Text(const Text &otherText) {
     setDefault(otherText.len, otherText.fontSize);
     copyCharArray(text, otherText.text, len);
@@ -57,25 +65,28 @@ Text::Text(const Text &otherText) {
     copyBoolArray(bold, otherText.italicized, len);
     copyBoolArray(bold, otherText.underlined, len);
 }
+*/
 
-const char *getText() {
+const char *Text::getText() {
     return text;
 }
 
-const bool *getBold() {
+const bool *Text::getBold() {
     return bold;
 }
 
-const bool *getItalicized() {
+const bool *Text::getItalicized() {
     return italicized;
 }
 
-const bool *getUnderlined() {
+const bool *Text::getUnderlined() {
     return underlined;
 }
 
 // Sets text to a default state (excluding font size). Assumes that all memory is unallocated or deallocated
-void Text::setDefault(int length) : len(length) {
+void Text::setDefault(int length) {
+    len = length;
+
     text = new char[len];
     setText();
 
@@ -90,7 +101,10 @@ void Text::setDefault(int length) : len(length) {
 }
 
 // Sets text to a default state. Assumes that all memory is unallocated or deallocated
-void Text::setDefault(int length, int sizeFont) : len(length), fontSize(sizeFont) {
+void Text::setDefault(int length, int sizeFont) {
+    len = length;
+    fontSize = sizeFont;
+
     text = new char[len];
     setText();
 
@@ -111,8 +125,23 @@ void Text::setText() {
 }
 
 void Text::setText(const char *words) {
-    if (len < findLength(words)) {
+    if (len != findLength(words)) {
         len = findLength(words);
+
+        delete [] text;
+        delete [] bold;
+        delete [] italicized;
+        delete [] underlined;
+
+        setDefault(len);
+    }
+
+    copyCharArray(text, words, len);
+}
+
+void Text::setText(const string words) {
+    if (len != int(words.length())) {
+        len = words.length();
 
         delete [] text;
         delete [] bold;
@@ -148,11 +177,11 @@ void Text::setBold(bool isBold, int start, int end) {
 }
 
 void Text::setItalics(bool isItalicized) {
-    setBoolSecton(italics, isItalicized, len);
+    setBoolSecton(italicized, isItalicized, len);
 }
 
 void Text::setItalics(bool isItalicized, int start, int end) {
-    setBoolSecton(italics, isItalicized, start, end);
+    setBoolSecton(italicized, isItalicized, start, end);
 }
 
 void Text::setUnderline(bool isUnderlined) {
