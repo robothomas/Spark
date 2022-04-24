@@ -1,5 +1,7 @@
 #ifndef __DATABASE_H__
 #define __DATABASE_H__
+#include<iostream>
+using namespace std;
 
 class Database {
     int pLen;
@@ -20,3 +22,5 @@ public:
     Post* get_post(int id);
     Community* get_community(int id);
 };
+
+#endif

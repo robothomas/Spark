@@ -1,6 +1,8 @@
 #include<iostream>
 #include"/usr/local/cs/cs251/show_mem.h"
 #include"account.h"
+#include"post/post.h"
+#include"community.h"
 using namespace std;
 
 //Constructor
