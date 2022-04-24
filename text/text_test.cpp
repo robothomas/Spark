@@ -1,4 +1,4 @@
-#include "Text.h"
+#include "text.h"
 #include <cassert>
 
 void testDefinition() {

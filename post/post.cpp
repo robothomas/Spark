@@ -1,4 +1,4 @@
-#include "Post.h"
+#include "post.h"
 
 Post(int id_num, int communityID, string postTitle) : id(id_num), title(postTitle) {
     communityIDs = new int[1];

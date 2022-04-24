@@ -2,8 +2,8 @@
 #define __POST_H__
 
 #include <string>
-#include "Post.h"
-#include "Text.h"
+#include "post.h"
+#include "text/text.h"
 
 class Post {
     int id;
