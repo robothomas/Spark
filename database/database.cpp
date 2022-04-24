@@ -1,6 +1,8 @@
 #include<iostream>
 #include"/usr/local/cs/cs251/show_mem.h"
 #include"database.h"
+#include"spark/community/community.h"
+#include"spark/post/post.h"
 using namespace std;
 
 //Constructors
@@ -61,7 +63,7 @@ void Database::expand_cStorage(){
     cStorage = tmp;
 }
 
-//add item to storage
+//add items to storage
 void Database::add_post(Post* p){
     int i = get_post_id();
     pStorage[i] = p;

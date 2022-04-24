@@ -1,12 +1,14 @@
 #ifndef __COMMUNITY_H__
 #define __COMMUNITY_H__
-#include <ifstream>
+#include<iostream>
+#include<string>
+using namespace std;
 
 class Community{
     int id;
     int len;
     string title;
-    Text* description;
+    Test::Text* description;
     Post* posts[];
 
 public:
@@ -26,3 +28,5 @@ public:
     void read_from(ifstream filestream);
     void write_to();
 };
+
+#endif

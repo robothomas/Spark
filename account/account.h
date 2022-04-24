@@ -1,5 +1,8 @@
 #ifndef __COMMUNITY_H__
 #define __COMMUNITY_H__
+#include<iostream>
+#include<string>
+using namespace std;
 
 class Account{
     int ypl;
