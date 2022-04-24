@@ -1,17 +1,20 @@
 #include<iostream>
+#include<string>
 #include"/usr/local/cs/cs251/show_mem.h"
 #include"community.h"
+#include"post/post.h"
+#include"text/text.h"
 using namespace std;
 
 //Constructors
-Community::Community();{
+Community::Community(){
     id = Database.get_community_id();
     len = 1;
     title = Text();
     description = Text();
     posts = new Post[len];
 }
-Community::Community(Text *t, Text *d){
+Community::Community(Text t, Text d){
     id = Database.get_community_id();
     len = 1;
     title = t;
@@ -32,13 +35,13 @@ void Community::change_title(string t){
 Text Community::get_description(){
     return description;
 }
-void Community::change_description(Text *d){
+void Community::change_description(Text d){
     delete [] description;
     description = d;
 }
 
 //Alter posts
-void Community::add_post(Post *p){
+void Community::add_post(Post p){
     int i = get_open_id();
     posts[i] = p; 
 }
