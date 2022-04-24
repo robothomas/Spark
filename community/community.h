@@ -19,6 +19,7 @@ public:
     Community(string t, Text *d);
     Community(const Community &c);
     //Member Functions
+    Community::operator=(const community &c);
     Text get_title();
     Text get_description();
     void change_title(string t);

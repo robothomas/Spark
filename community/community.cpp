@@ -31,6 +31,16 @@ Community::Community(const Community &c){
         posts[i] = c.posts[i];
     }
 }
+Community::operator=(const Community &c){
+    id = c.id;
+    len = c.len;
+    title = c.title;
+    description = c.description;
+    posts = new Post[len];
+    for(int i = 0; i < len; i++){
+        posts[i] = c.posts[i];
+    }
+}
 
 
 //Title
