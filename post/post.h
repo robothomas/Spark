@@ -3,7 +3,7 @@
 
 #include <string>
 #include "post.h"
-#include "text/text.h"
+#include "../text/text.h"
 
 class Post {
     int id;

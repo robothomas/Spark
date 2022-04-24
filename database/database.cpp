@@ -1,8 +1,8 @@
 #include<iostream>
 #include"/usr/local/cs/cs251/show_mem.h"
 #include"database.h"
-#include"spark/community/community.h"
-#include"spark/post/post.h"
+#include"../community/community.h"
+#include"../post/post.h"
 using namespace std;
 
 //Constructors
@@ -22,25 +22,27 @@ Database::Database(int p, int c){
 //Get storage ids
 int Database::get_post_id(){
     for(int i = 0; i < pLen; i++){
-        if(pStorage[i] == 0){
+        if(pStorage[i] == NULL){
             return i;
         }
     }
-    if(pStorage[pLen] != 0){
+    if(pStorage[pLen] != NULL){
         expand_pStorage();
         return get_post_id();
     }
+    return;
 }
 int Database::get_community_id(){
     for(int i = 0; i < cLen; i++){
-        if(cStorage[i] == 0){
+        if(cStorage[i] == NULL){
             return i;
         }
     }
-    if(cStorage[cLen] != 0){
+    if(cStorage[cLen] != NULL){
         expand_cStorage();
         return get_community_id();
     }
+    return;
 }
 
 //Expand storage
@@ -66,17 +68,17 @@ void Database::expand_cStorage(){
 //add items to storage
 void Database::add_post(Post* p){
     int i = get_post_id();
-    pStorage[i] = p;
+    pStorage[i] = *p;
 }
 void Database::add_community(Community* c){
     int i = get_community_id();
-    cStorage[i] = c;
+    cStorage[i] = *c;
 }
 
 //get item ids
 Post* Database::get_post(int id){
-    return pStorage[id];
+    return &pStorage[id];
 }
 Community* Database::get_community(int id){
-    return cStorage[id];
+    return &cStorage[id];
 }

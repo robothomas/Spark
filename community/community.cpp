@@ -2,8 +2,8 @@
 #include<string>
 #include"/usr/local/cs/cs251/show_mem.h"
 #include"community.h"
-#include"post/post.h"
-#include"text/text.h"
+#include"../post/post.h"
+#include"../text/text.h"
 using namespace std;
 
 //Constructors
@@ -21,6 +21,27 @@ Community::Community(Text t, Text d){
     description = d;
     posts = new Post[len];
 }
+Community::Community(const Community &c){
+    id = c.id;
+    len = c.len;
+    title = c.title;
+    description = c.description;
+    posts = new Post[len];
+    for(int i = 0; i < len; i++){
+        posts[i] = c.posts[i];
+    }
+}
+Community::operator=(const Community &c){
+    id = c.id;
+    len = c.len;
+    title = c.title;
+    description = c.description;
+    posts = new Post[len];
+    for(int i = 0; i < len; i++){
+        posts[i] = c.posts[i];
+    }
+}
+
 
 //Title
 Text Community::get_title(){ 

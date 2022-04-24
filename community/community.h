@@ -2,20 +2,24 @@
 #define __COMMUNITY_H__
 #include<iostream>
 #include<string>
+#include"../text/text.h"
+#include"../post/post.h"
 using namespace std;
 
 class Community{
     int id;
     int len;
     string title;
-    Test::Text* description;
+    Text* description;
     Post* posts[];
 
 public:
     //Constructors
     Community(); 
     Community(string t, Text *d);
+    Community(const Community &c);
     //Member Functions
+    Community::operator=(const community &c);
     Text get_title();
     Text get_description();
     void change_title(string t);

@@ -1,6 +1,8 @@
 #ifndef __DATABASE_H__
 #define __DATABASE_H__
 #include<iostream>
+#include"../community/community.h"
+#include"../post/post.h"
 using namespace std;
 
 class Database {
