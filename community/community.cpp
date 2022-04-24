@@ -76,7 +76,7 @@ void Community::expand_posts(){
 
 //Read/write
 void Community::read_from(ifstream filestream){
-
+//ignore this comment
 }
 void Community::write_to(){
 
