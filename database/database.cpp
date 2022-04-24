@@ -2,7 +2,7 @@
 #include"/usr/local/cs/cs251/show_mem.h"
 #include"database.h"
 #include"post/post.h"
-#include"community.h"
+#include"community/community.h"
 using namespace std;
 
 //Constructors
@@ -63,7 +63,7 @@ void Database::expand_cStorage(){
     cStorage = tmp;
 }
 
-//add item to storage
+//add items to storage
 void Database::add_post(Post* p){
     int i = get_post_id();
     pStorage[i] = p;
