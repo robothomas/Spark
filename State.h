@@ -3,13 +3,13 @@
 
 #include<string>
 #include "/usr/local/cs/cs251/show_mem.h"
-#include "IdeaGenerator.h"
-#include "NewPost.h"
-#include "Post.h"
+#include "idea_generator/IdeaGenerator.h"
+#include "new_post/NewPost.h"
+#include "post/post.h"
 #include "community.h"
 #include "account.h"
-#include "SearchResults.h"
-#include "Text.h"
+#include "results/SearchResults.h"
+#include "text/text.h"
 using namespace std;
 
 class State {
@@ -22,8 +22,10 @@ class State {
   Account account;
   SearchResults results;
 
-  void read_from(string file);
-  void display();
+  void read_from(string file); //20 25114
+  void write_to(string file);
 };
+
+void display(State &);
 
 #endif
