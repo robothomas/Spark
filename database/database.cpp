@@ -10,7 +10,7 @@ Database::Database(){
         pLen = 1;
         cLen = 1;
         pStorage = new Post[pLen];
-        cStorage = new Community[cLen]];
+        cStorage = new Community[cLen];
     }
 Database::Database(int p, int c){
     pLen = p;
@@ -26,11 +26,8 @@ int Database::get_post_id(){
             return i;
         }
     }
-    if(pStorage[pLen] != NULL){
-        expand_pStorage();
-        return get_post_id();
-    }
-    return;
+    expand_pStorage();
+    return get_post_id();
 }
 int Database::get_community_id(){
     for(int i = 0; i < cLen; i++){
@@ -38,17 +35,15 @@ int Database::get_community_id(){
             return i;
         }
     }
-    if(cStorage[cLen] != NULL){
-        expand_cStorage();
-        return get_community_id();
-    }
-    return;
+    expand_cStorage();
+    return get_community_id();
 }
 
 //Expand storage
 void Database::expand_pStorage(){
     pLen = pLen * 2;
-    Post* tmp = new Post[pLen];
+    Post* tmp;
+    tmp = new Post[pLen];
     for(int i = 0; i < pLen; i++){
         tmp[i] = pStorage[i];
     }
