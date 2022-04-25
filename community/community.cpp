@@ -31,7 +31,7 @@ Community::Community(const Community &c){
         posts[i] = c.posts[i];
     }
 }
-Community::operator=(const Community &c){
+Community& Community::operator=(const Community &c){
     id = c.id;
     len = c.len;
     title = c.title;
@@ -80,10 +80,8 @@ int Community::get_open_id(){
             return i;
         }
     }
-    if(posts[len] != 0){
-        expand_posts();
-        return get_open_id();
-    }
+    expand_posts();
+    return get_open_id();
 }
 void Community::expand_posts(){
     len = len * 2;
@@ -91,13 +89,13 @@ void Community::expand_posts(){
     for(int i = 0; i < len; i++){
         tmp[i] = posts[i];
     }
-    delete [] posts;
+    delete posts;
     posts = tmp;
 }
 
 //Read/write
-void Community::read_from(ifstream filestream){
-//ignore this comment
+void Community::read_from(){
+
 }
 void Community::write_to(){
 

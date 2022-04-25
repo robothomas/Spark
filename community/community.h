@@ -19,7 +19,7 @@ public:
     Community(string t, Text *d);
     Community(const Community &c);
     //Member Functions
-    Community::operator=(const community &c);
+    Community& operator=(const Community &c);
     Text get_title();
     Text get_description();
     void change_title(string t);
@@ -29,7 +29,7 @@ public:
     Post* get_post(int id);
     int get_open_id();
     void expand_posts();
-    void read_from(ifstream filestream);
+    void read_from();
     void write_to();
 };
 
