@@ -19,4 +19,5 @@
     borderBottomRightRadius: 10
     position: absolute
     top: 70%
-    left: {left} + 4.5%
+    left: {leftWithOffset}
+    

@@ -1,10 +1,10 @@
 - View:
   style:
     width: 80%
-    height: {height}%
+    height: {height}
     backgroundColor: white
     position: absolute
-    top: {top}%
+    top: {top}
     left: 10%
     borderWidth: 10%
   children:
@@ -16,3 +16,4 @@
         left: 5%
         fontSize: {fontSize}
       index: {text_index}
+      

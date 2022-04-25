@@ -1,11 +1,11 @@
 - View:
   style:
-    width: {width}%
+    width: {width}
     height: 6%
     backgroundColor: lightgreen
     position: absolute
     top: 15%
-    left: {left}%
+    left: {left}
     borderWidth: 10%
   children:
     - Text:
@@ -16,3 +16,4 @@
         left: 5%
         fontSize: 13
       index: 55
+      

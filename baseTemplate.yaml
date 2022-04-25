@@ -1,214 +1,208 @@
 - View:
-    style:
+   style:
       width: 100%
-      height: 100%
-      backgroundColor: lightyellow
-    children:
-       - View:
-           style:
-             width: 100%
-             height: 10%
-             backgroundColor: gold
-             flexDirection: row
-             position: absolute
-             top: 90%
-           children:
+      height: 10%
+      backgroundColor: gold
+      flexDirection: row
+      position: absolute
+      top: 90%
+   children:
 
 
-              - View:
-                 style:
-                    width: 25%
-                    borderWidth: 10%
-                 children:
-                    - View:
-                       style:
-                          width: 50%
-                          height: 80%
-                          backgroundColor: skyblue
-                          top: 11.5%
-                          left: 25%
-                          borderWidth: 5%
-                          borderRadius: 100%
-                       children:
-                         - View:
-                            style:
-                              width: 50%
-                              height: 50%
-                              backgroundColor: yellow
-                              borderRadius: 25
-                              borderWidth: 2
-                              top: 15%
-                              left: 25%
-                         - View: 
-                            style:
-                              width: 27.5%
-                              height: 27.5%
-                              backgroundColor: gray
-                              borderWidth: 2
-                              borderBottomLeftRadius: 10
-                              borderBottomRightRadius: 10
-                              top: 10%
-                              left: 36%
+      - View:
+         style:
+            width: 25%
+            borderWidth: 10%
+         children:
+            - View:
+               style:
+                  width: 50%
+                  height: 80%
+                  backgroundColor: skyblue
+                  top: 11.5%
+                  left: 25%
+                  borderWidth: 5%
+                  borderRadius: 100%
+               children:
+                  - View:
+                     style:
+                     width: 50%
+                     height: 50%
+                     backgroundColor: yellow
+                     borderRadius: 25
+                     borderWidth: 2
+                     top: 15%
+                     left: 25%
+                  - View: 
+                     style:
+                     width: 27.5%
+                     height: 27.5%
+                     backgroundColor: gray
+                     borderWidth: 2
+                     borderBottomLeftRadius: 10
+                     borderBottomRightRadius: 10
+                     top: 10%
+                     left: 36%
 
 
-              - View:
-                 style:
-                    width: 25% 
-                    borderWidth: 10%
-                 children:
-                    - View:
-                       style:
-                          width: 50%
-                          height: 80%
-                          backgroundColor: violet
-                          top: 11.5%
-                          left: 25%
-                          borderWidth: 5%
-                          borderRadius: 100%
-                       children:
-                          - View:
-                             style:
-                                width: 24%
-                                height: 25%
-                                backgroundColor: black
-                                borderRadius: 50
-                                top: 15%
-                                left: 38.5%
-                          - View:
-                              style:
-                                width: 35%
-                                height: 30%
-                                backgroundColor: black
-                                borderRadius: 50
-                                top: 20%
-                                left: 32.5%
-                          - View:
-                              style:
-                                width: 35%
-                                height: 35%
-                                backgroundColor: black
-                                top: 10%
-                                left: 32.5%
-                          - View:
-                              style:
-                                width: 20%
-                                height: 20%
-                                backgroundColor: black
-                                borderRadius: 50
-                                top: -65%
-                                left: 12.5%
-                          - View:
-                              style:
-                                width: 25%
-                                height: 25%
-                                backgroundColor: black
-                                borderRadius: 50
-                                top: -60%
-                                left: 10%
-                          - View:
-                              style:
-                                width: 25%
-                                height: 35%
-                                backgroundColor: black
-                                borderBottomLeftRadius: 50
-                                top: -75%
-                                left: 10% 
-                          - View:
-                              style:
-                                width: 20%
-                                height: 20%
-                                backgroundColor: black
-                                borderRadius: 50
-                                top: -145%
-                                left: 67.5%
-                          - View:
-                              style:
-                                width: 25%
-                                height: 25%
-                                backgroundColor: black
-                                borderRadius: 50
-                                top: -140%
-                                left: 65%
-                          - View:
-                              style:
-                                width: 25%
-                                height: 35%
-                                backgroundColor: black
-                                borderBottomRightRadius: 50
-                                top: -150%
-                                left: 65.% 
+      - View:
+         style:
+            width: 25% 
+            borderWidth: 10%
+         children:
+            - View:
+               style:
+                  width: 50%
+                  height: 80%
+                  backgroundColor: violet
+                  top: 11.5%
+                  left: 25%
+                  borderWidth: 5%
+                  borderRadius: 100%
+               children:
+                  - View:
+                     style:
+                        width: 24%
+                        height: 25%
+                        backgroundColor: black
+                        borderRadius: 50
+                        top: 15%
+                        left: 38.5%
+                  - View:
+                     style:
+                        width: 35%
+                        height: 30%
+                        backgroundColor: black
+                        borderRadius: 50
+                        top: 20%
+                        left: 32.5%
+                  - View:
+                     style:
+                        width: 35%
+                        height: 35%
+                        backgroundColor: black
+                        top: 10%
+                        left: 32.5%
+                  - View:
+                     style:
+                        width: 20%
+                        height: 20%
+                        backgroundColor: black
+                        borderRadius: 50
+                        top: -65%
+                        left: 12.5%
+                  - View:
+                     style:
+                        width: 25%
+                        height: 25%
+                        backgroundColor: black
+                        borderRadius: 50
+                        top: -60%
+                        left: 10%
+                  - View:
+                     style:
+                        width: 25%
+                        height: 35%
+                        backgroundColor: black
+                        borderBottomLeftRadius: 50
+                        top: -75%
+                        left: 10% 
+                  - View:
+                     style:
+                        width: 20%
+                        height: 20%
+                        backgroundColor: black
+                        borderRadius: 50
+                        top: -145%
+                        left: 67.5%
+                  - View:
+                     style:
+                        width: 25%
+                        height: 25%
+                        backgroundColor: black
+                        borderRadius: 50
+                        top: -140%
+                        left: 65%
+                  - View:
+                     style:
+                        width: 25%
+                        height: 35%
+                        backgroundColor: black
+                        borderBottomRightRadius: 50
+                        top: -150%
+                        left: 65.% 
 
 
-              - View:
-                 style:
-                    width: 25%
-                    borderWidth: 10%
-                 children:
-                    - View:
-                       style:
-                          width: 50%
-                          height: 80%
-                          backgroundColor: lightgreen
-                          top: 11.5%
-                          left: 25%
-                          borderWidth: 5%
-                          borderRadius: 100%
-                       children:
-                          - View:
-                             style:
-                               width: 60%
-                               height: 50%
-                               backgroundColor: white
-                               borderRadius: 25
-                               borderWidth: 2
-                               top: 20%
-                               left: 22.5%
-                          - View:
-                             style:
-                               width: 20%
-                               height: 20%
-                               backgroundColor: white
-                               borderRadius: 50
-                               borderWidth: 2
-                               top: 12.5%
-                               left: 20%
+      - View:
+         style:
+            width: 25%
+            borderWidth: 10%
+         children:
+            - View:
+               style:
+                  width: 50%
+                  height: 80%
+                  backgroundColor: lightgreen
+                  top: 11.5%
+                  left: 25%
+                  borderWidth: 5%
+                  borderRadius: 100%
+               children:
+                  - View:
+                     style:
+                        width: 60%
+                        height: 50%
+                        backgroundColor: white
+                        borderRadius: 25
+                        borderWidth: 2
+                        top: 20%
+                        left: 22.5%
+                  - View:
+                     style:
+                        width: 20%
+                        height: 20%
+                        backgroundColor: white
+                        borderRadius: 50
+                        borderWidth: 2
+                        top: 12.5%
+                        left: 20%
 
 
-              - View:
-                 style:
-                    width: 25%
-                    borderWidth: 10%
-                 children:
-                    - View:
-                       style:
-                          width: 50%
-                          height: 80%
-                          backgroundColor: '#FF7F7F'
-                          top: 11.5%
-                          left: 25%
-                          borderWidth: 5%
-                          borderRadius: 100%
-                       children:
-                          - View:
-                             style:
-                                width: 30%
-                                height: 30%
-                                backgroundColor: black
-                                borderRadius: 50
-                                top: 20%
-                                left: 35%
-                          - View:
-                              style:
-                                width: 40%
-                                height: 30%
-                                backgroundColor: black
-                                borderRadius: 50
-                                top: 25%
-                                left: 30%
-                          - View:
-                              style:
-                                width: 40%
-                                height: 30%
-                                backgroundColor: black
-                                top: 10%
-                                left: 30%
+      - View:
+         style:
+            width: 25%
+            borderWidth: 10%
+         children:
+            - View:
+               style:
+                  width: 50%
+                  height: 80%
+                  backgroundColor: '#FF7F7F'
+                  top: 11.5%
+                  left: 25%
+                  borderWidth: 5%
+                  borderRadius: 100%
+               children:
+                  - View:
+                     style:
+                        width: 30%
+                        height: 30%
+                        backgroundColor: black
+                        borderRadius: 50
+                        top: 20%
+                        left: 35%
+                  - View:
+                     style:
+                        width: 40%
+                        height: 30%
+                        backgroundColor: black
+                        borderRadius: 50
+                        top: 25%
+                        left: 30%
+                  - View:
+                     style:
+                        width: 40%
+                        height: 30%
+                        backgroundColor: black
+                        top: 10%
+                        left: 30%

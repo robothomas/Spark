@@ -4,9 +4,9 @@ using namespace std;
 
 void addRatingBulb(bool on, float left) {
     if (on) {
-        add_yaml("ratingBulb.yaml", {"left", left}, {"ratingColor", yelow});
+        _add_yaml("ratingBulb.yaml", {{"left", left}, {"ratingColor", "yelow"}});
     } else {
-        add_yaml("ratingBulb.yaml", {"left", left}, {"ratingColor", white});
+        _add_yaml("ratingBulb.yaml", {{"left", left}, {"ratingColor", "white"}});
     }
 }
 
@@ -23,12 +23,12 @@ void addRatingArray(int rating) {
 }
 
 int main() {
-  add_yaml("searchBar.yaml", {{"top", 5}});
-  add_yaml("postCommunity.yaml", {"width", 33}, {"left", 10})
-  add_yaml("postCommunity.yaml", {"width", 36}, {"left", 45})
-  add_yaml("textBox.yaml", {{"top", 25}, {"height", 8}, {"fontSize", 18}}, {"text_index", 0})
-  add_yaml("textBox.yaml", {{"top", 35}, {"height", 33}, {"fontSize", 15}, {"text_index", 1}})
+  _add_yaml("searchBar.yaml", {{"top", 5}});
+  _add_yaml("postCommunity.yaml", {{"width", "33%"}, {"left", "10%"}});
+  _add_yaml("postCommunity.yaml", {{"width", "36%"}, {"left", "45%"}});
+  _add_yaml("textBox.yaml", {{"top", "25%"}, {"height", "8%"}, {"fontSize", 18}, {"text_index", 0}});
+  _add_yaml("textBox.yaml", {{"top", "35%"}, {"height", "33%"}, {"fontSize", 15}, {"text_index", 1}});
   addRatingArray(3);
-  add_yaml("baseTemplate.yaml");
+  _add_yaml("baseTemplate.yaml");
   _write_global_yaml_to_file("react.yaml");
 }
