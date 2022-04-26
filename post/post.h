@@ -18,6 +18,7 @@ class Post {
     string get_title();
     Text get_description();
     void read_from(const char* mem);
+    void write_to(char* mem);
 };
 
 #endif

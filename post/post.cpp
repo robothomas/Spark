@@ -1,7 +1,7 @@
 #include <string>
 #include "post.h"
 #include "../text/text.h"
-#include"/usr/local/cs/cs251/show_mem.h"
+#include"/usr/local/cs/cs251/react.h"
 
 
 Post::Post(int id_num, int communityID, string postTitle) : id(id_num), title(postTitle) {
@@ -37,4 +37,23 @@ void Post::read_from(const char* mem){
     mem += //find \n 
     description = Text(desc); //Make desc into a char*
 
+}
+
+void Post::write_to(const char *mem) {
+    _put_int(id, mem, 2);
+    mem += 2;
+
+    _put_char('\n', mem, 1);
+    mem += 1;
+
+    for (i = 0; communityIDs[i]; i++) {
+        put_int(communityIDs[i], mem, 2);
+        mem += 2;
+    }
+
+    _put_tilde_terminated_string(title, mem);
+    
+    mem += title.length() + 1;
+
+    text.write_to(mem);
 }
