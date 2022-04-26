@@ -10,13 +10,14 @@ class Post {
     int *communityIDs;
     string title;
     Text description;
-    Post(int id_num; int communityID; string postTitle);
-    Post(int id_num; int communityID; string postTitle; Text postDescription);
-    Post(int id_num; int *communityIDNums; string postTitle);
-    Post(int id_num; int *communityIDNums; string postTitle; Text postDescription);
+    Post(int id_num, int communityID, string postTitle);
+    Post(int id_num, int communityID, string postTitle, Text postDescription);
+    Post(int id_num, int *communityIDNums, string postTitle);
+    Post(int id_num, int *communityIDNums, string postTitle, Text postDescription);
     int get_id();
     string get_title();
     Text get_description();
+    void read_from(const char* mem);
 };
 
 #endif
