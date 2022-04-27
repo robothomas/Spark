@@ -21,6 +21,7 @@ class Text {
     public:
         int len;
         int fontSize;
+
         Text();
         Text(const char *words);
         Text(const char *words, int sizeFont);
@@ -44,6 +45,9 @@ class Text {
         void setItalics(bool isItalicized, int start, int end);
         void setUnderline(bool isUnderlined);
         void setUnderline(bool isUnderlined, int start, int end);
+
+        void read_from(char *mem);
+        void write_to(char *mem);
 };
 
 #endif

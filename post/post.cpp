@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 #include<string>
 #include"post.h"
 #include"../text/text.h"
 #include"/usr/local/cs/cs251/show_mem.h"
+=======
+#include <string>
+#include "post.h"
+#include "../text/text.h"
+#include"/usr/local/cs/cs251/react.h"
+>>>>>>> 7348ff0c8914cfca1471b0531c3c8007168e3741
 
 
 Post::Post(int id_num, int communityID, string postTitle) : id(id_num), title(postTitle) {
@@ -45,4 +52,24 @@ void Post::read_from(char* mem){
     string d = _get_tilde_terminated_string(mem);
     mem += d.size() + 1;
     description = Text desc(d);
+}
+
+
+void Post::write_to(const char *mem) {
+    _put_int(id, mem, 2);
+    mem += 2;
+
+    _put_char('\n', mem, 1);
+    mem += 1;
+
+    for (i = 0; communityIDs[i]; i++) {
+        put_int(communityIDs[i], mem, 2);
+        mem += 2;
+    }
+
+    _put_tilde_terminated_string(title, mem);
+    
+    mem += title.length() + 1;
+
+    text.write_to(mem);
 }
