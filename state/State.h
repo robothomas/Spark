@@ -18,7 +18,7 @@ class State {
   //IdeaGenerator ideaGen;
   //NewPost newPost;
   //Community community;
-  Post post();
+  Post post;
   //Account account;
   //SearchResults results;
 
