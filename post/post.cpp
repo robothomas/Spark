@@ -1,6 +1,6 @@
-#include <string>
-#include "post.h"
-#include "../text/text.h"
+#include<string>
+#include"post.h"
+#include"../text/text.h"
 #include"/usr/local/cs/cs251/show_mem.h"
 
 
@@ -30,11 +30,19 @@ Text Post::get_description() {
     return description;
 }
 
-void Post::read_from(const char* mem){
-    title = _get_char(mem, 1); //find \n
-    mem += //find \n 
-    string desc = _get_char(mem, 1); //find \n
-    mem += //find \n 
-    description = Text(desc); //Make desc into a char*
-
+void Post::read_from(char* mem){
+    id = _get_int(mem);
+    mem += 2;
+    int j = 0;
+    while( _get_char(mem) != "~"){j++;}
+    communityID = new int[j];
+    for(int i = 0; i < j; i++){
+        communityID[i] = _get_int(mem);
+        mem += 2;
+    }
+    title = _get_tilde_terminated_string(mem); 
+    mem += title.size() + 1;
+    string d = _get_tilde_terminated_string(mem);
+    mem += d.size() + 1;
+    description = Text desc(d);
 }
