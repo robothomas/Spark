@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-#include<string>
-#include"post.h"
-#include"../text/text.h"
-#include"/usr/local/cs/cs251/show_mem.h"
-=======
 #include <string>
 #include "post.h"
 #include "../text/text.h"
 #include"/usr/local/cs/cs251/react.h"
->>>>>>> 7348ff0c8914cfca1471b0531c3c8007168e3741
-
 
 Post::Post(int id_num, int communityID, string postTitle) : id(id_num), title(postTitle) {
     communityIDs = new int[1];
