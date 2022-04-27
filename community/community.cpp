@@ -95,7 +95,7 @@ void Community::expand_posts(){
 
 //Read/write
 void Community::read_from(){
-
+//test
 }
 void Community::write_to(){
 
