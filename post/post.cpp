@@ -1,7 +1,7 @@
 #include <string>
 #include "post.h"
 #include "../text/text.h"
-#include"/usr/local/cs/cs251/react.h"
+#include "/usr/local/cs/cs251/react.h"
 
 // may need to be fixed later
 Post::Post() {
