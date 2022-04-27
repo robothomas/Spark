@@ -12,6 +12,7 @@ class Text {
         bool *italicized;
         bool *underlined;
         int findLength(const char *c);
+        int findLength(const char *c, char s);
         void copyCharArray(char *&to, const char *&from, int length); // may be replaced by strcpy soon
         void copyCharArray(char *&to, const string &from, int length);
         void copyBoolArray(bool *&to, const bool *&from, int length);
@@ -32,8 +33,6 @@ class Text {
         const bool *getBold();
         const bool *getItalicized();
         const bool *getUnderlined();
-        void read_from();
-        void write_to();
         void setDefault(int length);
         void setDefault(int length, int sizeFont);
         void setText();
@@ -46,7 +45,7 @@ class Text {
         void setUnderline(bool isUnderlined);
         void setUnderline(bool isUnderlined, int start, int end);
 
-        void read_from(char *mem);
+        void read_from(const char *mem);
         void write_to(char *mem);
 };
 
