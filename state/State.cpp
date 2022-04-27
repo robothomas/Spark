@@ -1,29 +1,22 @@
 #include <fstream>
 #include "State.h"
 
-State::read_from(string file) {
-    ifstream f(file);
-    f >> panelType;
-    f.get(); // reads in the newline
-
-    ideaGen.read_from(f);
-    newPost.read_from(f);
-    community.read_from(f);
-    post.read_from(f);
-    account.read_from(f);
-    results.read_from(f);
-    ideaGen.read_from(f);
+State::read_from(const char *mem) {
+    //ideaGen.read_from(mem);
+    //newPost.read_from(mem);
+    //community.read_from(mem);
+    post.read_from(mem);
+    //account.read_from(f);
+    //results.read_from(f);
+    //ideaGen.read_from(f);
 }
 
-State::write_to(string file) {
-    ofstream f(file);
-    f << panelType << endl;
-
-    ideaGen.write_to(f);
-    newPost.write_to(f);
-    community.write_to(f);
-    post.write_to(f);
-    account.write_to(f);
-    results.write_to(f);
-    ideaGen.write_to(f);
+State::write_to(char *mem) {
+    //ideaGen.write_to(mem);
+    //newPost.write_to(mem);
+    //community.write_to(mem);
+    post.write_to(mem);
+    //account.write_to(mem);
+    //results.write_to(mem);
+    //ideaGen.write_to(mem);
 }

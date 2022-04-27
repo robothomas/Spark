@@ -1,8 +1,7 @@
 #include <string>
 #include "post.h"
 #include "../text/text.h"
-#include "/usr/local/cs/cs251/react.h"
-
+#include"/usr/local/cs/cs251/react.h"
 
 Post::Post(int id_num, int communityID, string postTitle) : id(id_num), title(postTitle) {
     communityIDs = new int[1];
