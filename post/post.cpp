@@ -69,9 +69,9 @@ void Post::write_to(const char *mem) {
 
     _put_tilde_terminated_string(title, mem);
     mem += title.length() + 1;
-    
+
     _put_char('\n', mem, 1);
     mem++;
 
-    text.write_to(mem);
+    description.write_to(mem);
 }
