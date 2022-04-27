@@ -43,11 +43,11 @@ void Post::read_from(char* mem){
     mem += title.size() + 1;
     string d = _get_tilde_terminated_string(mem);
     mem += d.size() + 1;
-    description = Text desc(d);
+    description.read_from(mem);
 }
 
 
-void Post::write_to(const char *mem) {
+void Post::write_to(char *mem) {
     _put_int(id, mem, 2);
     mem += 2;
 

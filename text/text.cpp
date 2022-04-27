@@ -209,32 +209,35 @@ void Text::read_from(const char *mem) {
     setText(_get_tilde_terminated_string(mem + memPos));
     memPos += len + 1; // + 1 used for tilde (or newline, later)
     
-    for (int i = 0; mem[i] != '\n'; i++) {
-        bold[i] = mem[i];
+    for (int i = 0; mem[memPos + i] != '\n'; i++) {
+        bold[i] = mem[memPos + i];
 
-        if (mem[i + 1] == '\n') {
+        if (mem[memPos + i + 1] == '\n') {
             memPos += i + 2;
         }
     }
 
-    for (int i = 0; mem[i] != '\n'; i++) {
-        italicized[i] = mem[i];
+    for (int i = 0; mem[memPos + i] != '\n'; i++) {
+        italicized[i] = mem[memPos + i];
 
-        if (mem[i + 1] == '\n') {
+        if (mem[memPos + i + 1] == '\n') {
             memPos += i + 2;
         }
     }
 
-    for (int i = 0; mem[i] != '\n'; i++) {
-        underlined[i] = mem[i];
+    for (int i = 0; mem[memPos + i] != '\n'; i++) {
+        underlined[i] = mem[memPos + i];
         
-        if (mem[i + 1] == '\n') {
+        if (mem[memPos + i + 1] == '\n') {
             memPos += i + 2;
         }
     }
 }
 
 void Text::write_to(char *mem) {
+    _put_int(fontSize, mem, 2)
+    mem += 2;
+
     _put_tilde_terminated_string(text, mem);
     mem += len + 1;
 
