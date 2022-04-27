@@ -235,7 +235,7 @@ void Text::read_from(const char *mem) {
 }
 
 void Text::write_to(char *mem) {
-    _put_int(fontSize, mem, 2)
+    _put_int(fontSize, mem, 2);
     mem += 2;
 
     _put_tilde_terminated_string(text, mem);
@@ -245,27 +245,27 @@ void Text::write_to(char *mem) {
     mem++;
 
     for (int i = 0; i < len; i++) {
-        _put_bool(bold[i], 2);
+        _put_bool(bold[i], mem, 2);
         mem += 2;
     }
 
     _put_char('\n', mem, 1);
-    mem++
+    mem++;
 
     for (int i = 0; i < len; i++) {
-        _put_bool(italicized[i], 2);
+        _put_bool(italicized[i], mem, 2);
         mem += 2;
     }
 
     _put_char('\n', mem, 1);
-    mem++
+    mem++;
 
     for (int i = 0; i < len; i++) {
-        _put_bool(underlined[i], 2);
+        _put_bool(underlined[i], mem, 2);
         mem += 2;
     }
 
     _put_char('\n', mem, 1);
-    mem++
+    mem++;
 }
 
