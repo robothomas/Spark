@@ -10,7 +10,7 @@
             top: 5%
             left: 5%
             fontSize: 30
-          index: {}
+          index: {title}
        - Button:
           style:
             width: 30
@@ -52,5 +52,5 @@
                  position: relative
                  left: 1.5%
                  fontSize: 15
-               index: {}
+               index: {description}
        
