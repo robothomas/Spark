@@ -52,7 +52,10 @@ void Post::read_from(char* mem){
     id = _get_int(mem, 2);
     mem += 2;
     int j = 0;
-    while( _get_char(mem, 1) != "~"){j++;}
+    for (int i = 0; mem[i] != '~'; i += 2) { // may need some extra work
+        j++;
+    }
+    //while( _get_char(mem, 1) != "~"){j++;}
     communityIDs = new int[j];
     for(int i = 0; i < j; i++){
         communityIDs[i] = _get_int(mem, 2);
