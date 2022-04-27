@@ -10,6 +10,7 @@ class Post {
     int *communityIDs;
     string title;
     Text description;
+    Post();
     Post(int id_num, int communityID, string postTitle);
     Post(int id_num, int communityID, string postTitle, Text postDescription);
     Post(int id_num, int *communityIDNums, string postTitle);

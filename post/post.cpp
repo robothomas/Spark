@@ -3,6 +3,14 @@
 #include "../text/text.h"
 #include"/usr/local/cs/cs251/react.h"
 
+// may need to be fixed later
+Post::Post() {
+    id = 0;
+    title = "";
+    communityIDs = new int[1];
+    communityIDs[0] = 0;
+}
+
 Post::Post(int id_num, int communityID, string postTitle) : id(id_num), title(postTitle) {
     communityIDs = new int[1];
     communityIDs[0] = communityID;
