@@ -1,11 +1,19 @@
 #include "text.h"
 #include <string>
 #include <cstring>
+#include"/usr/local/cs/cs251/react.h"
 
 // Helper function that finds the length of a given dynamically allocated char string
 int Text::findLength(const char *c) {
     int length = 0;
     while (c[length++]) {}
+    return length;
+}
+
+// Helper function that finds the length of a string up until a certain character
+int Text::findLength(const char *c, char s) {
+    int length = 0;
+    while (c[length++] != 's') {}
     return length;
 }
 
@@ -190,5 +198,71 @@ void Text::setUnderline(bool isUnderlined) {
 
 void Text::setUnderline(bool isUnderlined, int start, int end) {
     setBoolSecton(underlined, isUnderlined, start, end);
+}
+
+void Text::read_from(const char *mem) {
+    int memPos = 0; // keeps track of spot in mem
+
+    fontSize = _get_int(mem, 2);
+    memPos += 2;
+
+    setText(_get_tilde_terminated_string(mem + memPos));
+    memPos += len + 1; // + 1 used for tilde (or newline, later)
+    
+    for (int i = 0; mem[i] != '\n'; i++) {
+        bold[i] = mem[i];
+
+        if (mem[i + 1] == '\n') {
+            memPos += i + 2;
+        }
+    }
+
+    for (int i = 0; mem[i] != '\n'; i++) {
+        italicized[i] = mem[i];
+
+        if (mem[i + 1] == '\n') {
+            memPos += i + 2;
+        }
+    }
+
+    for (int i = 0; mem[i] != '\n'; i++) {
+        underlined[i] = mem[i];
+        
+        if (mem[i + 1] == '\n') {
+            memPos += i + 2;
+        }
+    }
+}
+
+void Text::write_to(char *mem) {
+    _put_tilde_terminated_string(text, mem);
+    mem += len + 1;
+
+    _put_char('\n', mem, 1);
+    mem++;
+
+    for (int i = 0; i < len; i++) {
+        _put_bool(bold[i], 2);
+        mem += 2;
+    }
+
+    _put_char('\n', mem, 1);
+    mem++
+
+    for (int i = 0; i < len; i++) {
+        _put_bool(italicized[i], 2);
+        mem += 2;
+    }
+
+    _put_char('\n', mem, 1);
+    mem++
+
+    for (int i = 0; i < len; i++) {
+        _put_bool(underlined[i], 2);
+        mem += 2;
+    }
+
+    _put_char('\n', mem, 1);
+    mem++
 }
 

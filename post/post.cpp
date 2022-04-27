@@ -44,7 +44,7 @@ void Post::write_to(const char *mem) {
     mem += 2;
 
     _put_char('\n', mem, 1);
-    mem += 1;
+    mem++;
 
     for (i = 0; communityIDs[i]; i++) {
         put_int(communityIDs[i], mem, 2);
@@ -52,8 +52,10 @@ void Post::write_to(const char *mem) {
     }
 
     _put_tilde_terminated_string(title, mem);
-    
     mem += title.length() + 1;
+    
+    _put_char('\n', mem, 1);
+    mem++;
 
     text.write_to(mem);
 }
