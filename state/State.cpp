@@ -1,7 +1,7 @@
 #include <fstream>
 #include "State.h"
 
-State::read_from(const char *mem) {
+State::read_from(char *mem) {
     //ideaGen.read_from(mem);
     //newPost.read_from(mem);
     //community.read_from(mem);
