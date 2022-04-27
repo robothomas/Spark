@@ -1,0 +1,56 @@
+- View:
+    style:
+      width: 100%
+      height: 100%
+      backgroundColor: lightyellow
+    children:
+       - Text:
+          style:
+            position: relative
+            top: 5%
+            left: 5%
+            fontSize: 30
+          index: {}
+       - Button:
+          style:
+            width: 30
+            height: 30
+            left: 80%
+            top: -2%
+            borderRadius: 25
+            backgroundColor: transparent
+          on_touch:
+            backgroundColor: rgb(255, 210, 100)
+          children:
+             - View:
+                style:
+                  width: 5%
+                  height: 50%
+                  backgroundColor: black
+                  borderRadius: 5
+                  top: 25%
+                  left: 47.5%
+             - View:
+                style:
+                  width: 50%
+                  height: 5%
+                  backgroundColor: black
+                  borderRadius: 5
+                  top: -2.5%
+                  left: 25%
+       - View:
+          style:
+            width: 85%
+            height: 50%
+            left: 7.5%
+            top: 3%
+            backgroundColor: white
+            borderWidth: 2
+          children:
+            - Text:
+               style:
+                 position: relative
+                 left: 1.5%
+                 fontSize: 15
+               index: {}
+       
