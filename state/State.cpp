@@ -1,7 +1,7 @@
 #include <fstream>
 #include "State.h"
 
-Void State::read_from(const char *mem) {
+void State::read_from(const char *mem) {
     //ideaGen.read_from(mem);
     //newPost.read_from(mem);
     //community.read_from(mem);
@@ -11,7 +11,7 @@ Void State::read_from(const char *mem) {
     //ideaGen.read_from(f);
 }
 
-Void State::write_to(char *mem) {
+void State::write_to(char *mem) {
     //ideaGen.write_to(mem);
     //newPost.write_to(mem);
     //community.write_to(mem);
