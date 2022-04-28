@@ -25,6 +25,7 @@ class State {
   public:
     void read_from(char *mem); //20 25114
     void write_to(char *mem);
+    void update();
 };
 
 void display(State &);
