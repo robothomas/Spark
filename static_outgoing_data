@@ -1,96 +1,59 @@
 
-- Text:
-    style:
-      flex: 1
-      alignSelf: center
-      fontSize: 30
-      color: green
-    index: 6
 - View:
     style:
-      flex: 5
-      justifyContent: center
-      alignItems: center
+      width: 100%
+      height: 100%
+      backgroundColor: lightyellow
     children:
-      - ColorGrid:
+       - Text:
           style:
-            borderWidth: 2
-            width: 60
-            height: 60
-          extra_props:
-            magnification: 20
-            width: 3
-            height: 3
-          index: 40
-- View:
-    style:
-      flex: 1
-      flexDirection: row
-      justifyContent: space-around
-      alignItems: center
-    children:
-
-
-      - Button:
-          id: button_0
+            position: relative
+            top: 5%
+            left: 5%
+            fontSize: 30
+          index: 7
+       - Button:
           style:
-            width: 50
-            height: 50
+            width: 30
+            height: 30
+            left: 80%
+            top: -2%
             borderRadius: 25
-            borderWidth: 2
-            backgroundColor: rgb(140, 81, 10)
+            backgroundColor: transparent
           on_touch:
-            backgroundColor: rgb(190, 131, 60)
-      - Button:
-          id: button_1
+            backgroundColor: rgb(255, 210, 100)
+          children:
+             - View:
+                style:
+                  width: 5%
+                  height: 50%
+                  backgroundColor: black
+                  borderRadius: 5
+                  top: 25%
+                  left: 47.5%
+             - View:
+                style:
+                  width: 50%
+                  height: 5%
+                  backgroundColor: black
+                  borderRadius: 5
+                  top: -2.5%
+                  left: 25%
+       - View:
           style:
-            width: 50
-            height: 50
-            borderRadius: 25
+            width: 85%
+            height: 50%
+            left: 7.5%
+            top: 3%
+            backgroundColor: white
             borderWidth: 2
-            backgroundColor: rgb(216, 179, 101)
-          on_touch:
-            backgroundColor: rgb(266, 229, 151)
-      - Button:
-          id: button_2
-          style:
-            width: 50
-            height: 50
-            borderRadius: 25
-            borderWidth: 2
-            backgroundColor: rgb(246, 232, 195)
-          on_touch:
-            backgroundColor: rgb(296, 282, 245)
-      - Button:
-          id: button_3
-          style:
-            width: 50
-            height: 50
-            borderRadius: 25
-            borderWidth: 2
-            backgroundColor: rgb(199, 234, 229)
-          on_touch:
-            backgroundColor: rgb(249, 284, 279)
-      - Button:
-          id: button_4
-          style:
-            width: 50
-            height: 50
-            borderRadius: 25
-            borderWidth: 2
-            backgroundColor: rgb(90, 180, 172)
-          on_touch:
-            backgroundColor: rgb(140, 230, 222)
-      - Button:
-          id: button_5
-          style:
-            width: 50
-            height: 50
-            borderRadius: 25
-            borderWidth: 2
-            backgroundColor: rgb(1, 102, 94)
-          on_touch:
-            backgroundColor: rgb(51, 152, 144)
-
+          children:
+            - Text:
+               style:
+                 position: relative
+                 left: 1.5%
+                 fontSize: {15}
+               index: 25
+       
 ---
 ~~1  45/25 moves!~ 3 3 3 3 3 3 3 3 3 3 4«ÍÂ«ÍÂ«ÍÂ«ÍÂ«ÍÂ«ÍÂ«ÍÂ«ÍÂZ¥¨

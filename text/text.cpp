@@ -31,7 +31,7 @@ void Text::copyCharArray(char *&to, const string &from, int length) {
     }
 }
 
-void Text::copyBoolArray(bool *&to, const bool *&from, int length) {
+void Text::copyBoolArray(bool *to, const bool *from, int length) {
     for (int i = 0; i < length; i++) {
         to[i] = from[i];
     }
@@ -73,7 +73,6 @@ Text::Text(const Text &otherText) {
     copyBoolArray(italicized, otherText.italicized, len);
     copyBoolArray(underlined, otherText.underlined, len);
 }
-
 
 const char *Text::getText() {
     return text;

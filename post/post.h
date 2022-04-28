@@ -10,16 +10,17 @@ class Post {
     int *communityIDs;
     string title;
     Text description;
-    Post();
-    Post(int id_num, int communityID, string postTitle);
-    Post(int id_num, int communityID, string postTitle, Text postDescription);
-    Post(int id_num, int *communityIDNums, string postTitle);
-    Post(int id_num, int *communityIDNums, string postTitle, Text postDescription);
-    int get_id();
-    string get_title();
-    Text get_description();
-    void read_from(char* mem);
-    void write_to(char* mem);
+    public:
+        Post();
+        Post(int id_num, int communityID, string postTitle);
+        Post(int id_num, int communityID, string postTitle, Text postDescription);
+        Post(int id_num, int *communityIDNums, string postTitle);
+        Post(int id_num, int *communityIDNums, string postTitle, Text postDescription);
+        int get_id();
+        string get_title();
+        Text get_description();
+        void read_from(char* mem);
+        void write_to(char* mem);
 };
 
 #endif
