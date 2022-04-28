@@ -2,6 +2,9 @@
 #include "State.h"
 
 void State::read_from(char *mem) {
+    panelType = _get_int(mem, 2);
+    mem += 2;
+
     //ideaGen.read_from(mem);
     //newPost.read_from(mem);
     //community.read_from(mem);

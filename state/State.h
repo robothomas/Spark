@@ -13,8 +13,6 @@
 using namespace std;
 
 class State {
-  int panelType = 0; // 0 is idea generator, 1 is new post, 2 is community, 3 is post, 4 is account, 5 is search results
-  
   //IdeaGenerator ideaGen;
   //NewPost newPost;
   //Community community;
@@ -23,6 +21,7 @@ class State {
   //SearchResults results;
 
   public:
+    int panelType = 0; // 0 is idea generator, 1 is new post, 2 is community, 3 is post, 4 is account, 5 is search results
     void read_from(char *mem); //20 25114
     void write_to(char *mem);
     void update();
