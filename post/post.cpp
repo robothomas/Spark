@@ -1,7 +1,9 @@
 #include <string>
+#include <iostream>
 #include "post.h"
 #include "../text/text.h"
 #include "/usr/local/cs/cs251/react.h"
+using namespace std;
 
 // may need to be fixed later
 Post::Post() {
@@ -51,20 +53,26 @@ Text Post::get_description() {
 void Post::read_from(char* mem){
     id = _get_int(mem, 2);
     mem += 2;
+    
     int j = 0;
-    for (int i = 0; mem[i] != '~'; i += 2) { // may need some extra work
-        j++;
+    for (int i = 0; mem[i] != '~'; i++) {
+        if (mem[i] != ' ') {
+            j++;
+        }
     }
-    //while( _get_char(mem, 1) != "~"){j++;}
+
     communityIDs = new int[j];
     for(int i = 0; i < j; i++){
         communityIDs[i] = _get_int(mem, 2);
+        cerr << "communityIDs[" << i << "] = " << communityIDs[i] << endl;
         mem += 2;
     }
-    title = _get_tilde_terminated_string(mem); 
+    
+    mem++; // removes new line
+
+    title = _get_tilde_terminated_string(mem);
     mem += title.size() + 1;
-    string d = _get_tilde_terminated_string(mem);
-    mem += d.size() + 1;
+
     description.read_from(mem);
 }
 

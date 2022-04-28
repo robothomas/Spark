@@ -1,7 +1,9 @@
 #include "text.h"
 #include <string>
 #include <cstring>
+#include <iostream>
 #include"/usr/local/cs/cs251/react.h"
+using namespace std;
 
 // Helper function that finds the length of a given dynamically allocated char string
 int Text::findLength(const char *c) {
@@ -70,8 +72,8 @@ Text::Text(const Text &otherText) {
     setDefault(otherText.len, otherText.fontSize);
     copyCharArray(text, otherText.text, len);
     copyBoolArray(bold, otherText.bold, len);
-    copyBoolArray(bold, otherText.italicized, len);
-    copyBoolArray(bold, otherText.underlined, len);
+    copyBoolArray(italicized, otherText.italicized, len);
+    copyBoolArray(underlined, otherText.underlined, len);
 }
 
 const char *Text::getText() {

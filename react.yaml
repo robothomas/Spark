@@ -51,6 +51,6 @@
                style:
                  position: relative
                  left: 1.5%
-                 fontSize: {15}
+                 fontSize: 15
                index: 25
        

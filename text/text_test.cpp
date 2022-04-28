@@ -28,6 +28,16 @@ void testDefinition() {
     assert(t4.getText()[3] == 'l');
     assert(t4.fontSize == 15);
 
+    t4.setUnderline(true, 0, 3);
+
+    Text t5(t4);
+    assert(t5.getText()[3] == 'l');
+    assert(t5.fontSize == 15);
+    assert(t5.getUnderlined()[0] == true);
+    assert(t5.getUnderlined()[1] == true);
+    assert(t5.getUnderlined()[2] == true);
+    assert(t5.getUnderlined()[3] == true);
+
     delete [] words;
 }
 
