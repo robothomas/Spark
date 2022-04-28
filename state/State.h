@@ -26,6 +26,7 @@ class State {
     void read_from(char *mem); //20 25114
     void write_to(char *mem);
     void update();
+    void handle_button_event(int i); 
 };
 
 void display(State &);
