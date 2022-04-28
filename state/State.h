@@ -2,7 +2,7 @@
 #define __STATE_H__
 
 #include<string>
-#include "/usr/local/cs/cs251/show_mem.h"
+#include"/usr/local/cs/cs251/react.h"
 //#include "idea_generator/IdeaGenerator.h"
 //#include "new_post/NewPost.h"
 #include "../post/post.h"

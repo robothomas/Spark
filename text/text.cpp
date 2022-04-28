@@ -31,7 +31,7 @@ void Text::copyCharArray(char *&to, const string &from, int length) {
     }
 }
 
-void Text::copyBoolArray(bool *&to, const bool *&from, int length) {
+void Text::copyBoolArray(bool *to, const bool *from, int length) {
     for (int i = 0; i < length; i++) {
         to[i] = from[i];
     }
@@ -65,7 +65,7 @@ Text::Text(string words, int sizeFont) : fontSize(sizeFont) {
     copyCharArray(text, words, len); // alternatively, apparently strcpy() already does the exact same thing
 }
 
-/* Cannot Work! - cannot bind non-const lvalue reference of type ‘const bool*&’ to an rvalue of type ‘const bool*’
+// Cannot Work! - cannot bind non-const lvalue reference of type ‘const bool*&’ to an rvalue of type ‘const bool*’
 Text::Text(const Text &otherText) {
     setDefault(otherText.len, otherText.fontSize);
     copyCharArray(text, otherText.text, len);
@@ -73,7 +73,6 @@ Text::Text(const Text &otherText) {
     copyBoolArray(bold, otherText.italicized, len);
     copyBoolArray(bold, otherText.underlined, len);
 }
-*/
 
 const char *Text::getText() {
     return text;

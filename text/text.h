@@ -15,7 +15,7 @@ class Text {
         int findLength(const char *c, char s);
         void copyCharArray(char *&to, const char *&from, int length); // may be replaced by strcpy soon
         void copyCharArray(char *&to, const string &from, int length);
-        void copyBoolArray(bool *&to, const bool *&from, int length);
+        void copyBoolArray(bool *to, const bool *from, int length);
         void setBoolSecton(bool *&array, bool val, int start, int end);
         void setBoolSecton(bool *&array, bool val, int length);
 
