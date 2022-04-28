@@ -64,10 +64,9 @@ void Post::read_from(char* mem){
     communityIDs = new int[j];
     for(int i = 0; i < j; i++){
         communityIDs[i] = _get_int(mem, 2);
-        cerr << "communityIDs[" << i << "] = " << communityIDs[i] << endl;
         mem += 2;
     }
-    
+
     mem++; // removes new line
 
     title = _get_tilde_terminated_string(mem);
