@@ -19,6 +19,7 @@ class Post {
         int get_id();
         string get_title();
         Text get_description();
+        void equals(const Post &p);
         void read_from(char* mem);
         void write_to(char* mem);
 };
