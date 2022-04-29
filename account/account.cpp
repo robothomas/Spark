@@ -1,6 +1,6 @@
 #include<iostream>
-#include"/usr/local/cs/cs251/show_mem.h"
-#include"account.h"
+#include"/usr/local/cs/cs251/react.h
+#include "account.h"
 #include"../post/post.h"
 #include"../community/community.h"
 using namespace std;
@@ -70,10 +70,8 @@ int Account::get_your_posts_id(){
             return i;
         }
     }
-    if(your_posts[ypl] != 0){
-        expand_your_posts();
-        return get_your_posts_id();
-    }
+    expand_your_posts();
+    return get_your_posts_id();
 }
 int Account::get_saved_post_id(){
     for(int i = 0; i < spl; i++){
@@ -81,10 +79,8 @@ int Account::get_saved_post_id(){
             return i;
         }
     }
-    if(saved_posts[spl] != 0){
-        expand_saved_posts();
-        return get_saved_posts_id();
-    }
+    expand_saved_posts();
+    return get_saved_posts_id();
 }
 int Account::get_saved_communities_id(){
     for(int i = 0; i < scl; i++){
@@ -92,10 +88,8 @@ int Account::get_saved_communities_id(){
             return i;
         }
     }
-    if(saved_communities[scl] != 0){
-        expand_saved_communities();
-        return get_saved_communities_id();
-    }
+    expand_saved_communities();
+    return get_saved_communities_id();
 }
 
 //Exapnd libraries
@@ -105,7 +99,7 @@ void Account::expand_your_posts(){
     for(int i = 0; i < ypl; i++){
         tmp[i] = your_posts[i];
     }
-    delete [] your_posts;
+    delete your_posts;
     your_posts = tmp;
 }
 void Account::expand_saved_posts(){
@@ -114,7 +108,7 @@ void Account::expand_saved_posts(){
     for(int i = 0; i < spl; i++){
         tmp[i] = saved_posts[i];
     }
-    delete [] saved_posts;
+    delete saved_posts;
     saved_posts = tmp;
 }
 void Account::expand_saved_communities(){
@@ -123,12 +117,12 @@ void Account::expand_saved_communities(){
     for(int i = 0; i < scl; i++){
         tmp[i] = saved_communities[i];
     }
-    delete [] saved_communities;
+    delete saved_communities;
     saved_communities = tmp;
 }
 
 //Read/write
-void Account::read_from(ifstream filestream){
+void Account::read_from(char* mem){
 
 }
 void Account::write_to(){

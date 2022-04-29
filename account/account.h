@@ -1,7 +1,7 @@
 #ifndef __COMMUNITY_H__
 #define __COMMUNITY_H__
 #include<iostream>
-#include<string>
+#include<string> 
 using namespace std;
 
 class Account{
@@ -34,7 +34,7 @@ public:
     void expand_your_posts();
     void expand_saved_posts();
     void expand_saved_communities();
-    void read_from(ifstream filestream);
+    void read_from(char* mem);
     void write_to();
     void display();
 
