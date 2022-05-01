@@ -1,5 +1,5 @@
 #include<iostream>
-#include"/usr/local/cs/cs251/show_mem.h"
+#include"/usr/local/cs/cs251/react.h"
 #include"database.h"
 #include"../community/community.h"
 #include"../post/post.h"
