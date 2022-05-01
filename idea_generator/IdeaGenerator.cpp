@@ -1,6 +1,16 @@
-#include <IdeaGenerator.h>
+#include "IdeaGenerator.h"
+#include <string>
+#include <iostream>
 #include "/usr/local/cs/cs251/react.h"
 using namespace std;
+
+int countBeyondTilde(const char *mem) {
+    int len = 0;
+    while (mem[++len] != '~') {}
+    len++; // in order to go one beyond the tilde
+
+    return len;
+}
 
 IdeaGenerator::IdeaGenerator() {
     recent = "All-Time";
@@ -73,24 +83,21 @@ void IdeaGenerator::read_from(const char *mem) {
     int memPos = 0;
 
     recent = _get_tilde_terminated_string(mem);
-    while (mem[++memPos] != '~') {} // accumulates memPos to the ~
-    memPos++; // move memPos to position after the tilde
+    memPos += countBeyondTilde(mem);
+    
 
     difficulty = _get_tilde_terminated_string(mem);
-    while (mem[++memPos] != '~') {} // accumulates memPos to the ~
-    memPos++; // move memPos to position after the tilde
+    memPos += countBeyondTilde(mem);
 
     searchQuery = _get_tilde_terminated_string(mem);
 }
 
 void IdeaGenerator::write_to(char *mem) {
     _put_tilde_terminated_string(recent, mem);
-    while (++mem != '~') {} // adds to mem until tilde is found
-    mem++; // puts the position of mem right after the tilde
+    mem += countBeyondTilde(mem);
 
     _put_tilde_terminated_string(difficulty, mem);
-    while (++mem != '~') {} // adds to mem until tilde is found
-    mem++; // puts the position of mem right after the tilde
+    mem += countBeyondTilde(mem);
 
     _put_tilde_terminated_string(searchQuery, mem);
 }
