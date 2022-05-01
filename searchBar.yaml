@@ -1,38 +1,38 @@
-- View:
-  style:
-    width: 80%
-    height: 8%
-    backgroundColor: white
-    position: absolute
-    top: {top}%
-    left: 10%
-    borderWidth: 10%
-  children:
-    - Text:
-      style:
-        position: relative
-        color: gray
-        top: 7%
-        left: 5%
-        fontSize: 18
-      index: 0
     - View:
       style:
-        width: 7%
-        height: 50%
+        width: 80%
+        height: 8%
+        backgroundColor: white
         position: absolute
-        top: 20%
-        left: 87%
-        borderWidth: 5%
-        borderRadius: 100%
-    - View:
-      style:
-        width: 1%
-        height: 35%
-        position: absolute
-        top: 52%
-        left: 94%
-        borderBottomLeftRadius: 60
-        borderBottomRightRadius: 60
-        backgroundColor: black
-        transform: [{rotate: -45deg}]
+        top: {top}%
+        left: 10%
+        borderWidth: 10%
+      children:
+        - Text:
+          style:
+            position: relative
+            color: gray
+            top: 7%
+            left: 5%
+            fontSize: 18
+          index: 0
+        - View:
+          style:
+            width: 7%
+            height: 50%
+            position: absolute
+            top: 20%
+            left: 87%
+            borderWidth: 5%
+            borderRadius: 100%
+        - View:
+          style:
+            width: 1%
+            height: 35%
+            position: absolute
+            top: 52%
+            left: 94%
+            borderBottomLeftRadius: 60
+            borderBottomRightRadius: 60
+            backgroundColor: black
+            transform: [{rotate: -45deg}]

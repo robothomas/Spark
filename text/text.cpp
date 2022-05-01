@@ -76,6 +76,10 @@ Text::Text(const Text &otherText) {
     copyBoolArray(underlined, otherText.underlined, len);
 }
 
+Text Text::operator=(const Text &otherText) {
+    return Text(otherText);
+}
+
 const char *Text::getText() {
     return text;
 }

@@ -3,7 +3,7 @@
 
 void State::read_from(char *mem) {
     panelType = _get_int(mem, 2);
-    mem += 2;
+    mem += 3;
 
     //ideaGen.read_from(mem);
     //newPost.read_from(mem);
@@ -15,6 +15,12 @@ void State::read_from(char *mem) {
 }
 
 void State::write_to(char *mem) {
+    _put_int(panelType, mem, 2);
+    mem += 2;
+
+    _put_char('\n', mem, 1);
+    mem++;
+
     //ideaGen.write_to(mem);
     //newPost.write_to(mem);
     //community.write_to(mem);
