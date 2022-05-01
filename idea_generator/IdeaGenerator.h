@@ -2,7 +2,6 @@
 #define __IDEAGENERATOR_H__
 
 #include <string>
-using namespace std;
 
 class IdeaGenerator {
     private:
@@ -33,8 +32,8 @@ class IdeaGenerator {
         void setRecency(string recency);
         void setRecency(int recency);
 
-        void read_from();
-        void write_to();
+        void read_from(const char *mem);
+        void write_to(char *mem);
 }
 
 #endif
