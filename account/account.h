@@ -1,5 +1,5 @@
-#ifndef __COMMUNITY_H__
-#define __COMMUNITY_H__
+#ifndef __ACCOUNT_H__
+#define __ACCOUNT_H__
 #include<iostream>
 #include<string> 
 using namespace std;
