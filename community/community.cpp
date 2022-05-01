@@ -34,7 +34,7 @@ Community::Community(const Community &c){
         posts[i] = c.posts[i];
     }
 }
-void Community::equals(const Community &c){
+Community& Community::operator=(const Community &c){
     id = c.id;
     len = c.len;
     title = c.title;
@@ -44,6 +44,8 @@ void Community::equals(const Community &c){
         posts[i] = c.posts[i];
     }
 }
+
+
 
 int Community::get_id(){return id;}
 
