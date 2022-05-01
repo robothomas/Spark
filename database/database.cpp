@@ -1,5 +1,5 @@
 #include<iostream>
-#include"/usr/local/cs/cs251/show_mem.h"
+#include"/usr/local/cs/cs251/react.h"
 #include"database.h"
 #include"../community/community.h"
 #include"../post/post.h"
@@ -22,16 +22,16 @@ Database::Database(int p, int c){
 //Get storage ids
 int Database::get_post_id(){
     for(int i = 0; i < pLen; i++){
-        if(pStorage[i] == NULL){
+        if(pStorage[i].get_id() == 0){
             return i;
         }
     }
     expand_pStorage();
     return get_post_id();
 }
-int Database::get_community_id(){
+int Database::get_community_id(){ 
     for(int i = 0; i < cLen; i++){
-        if(cStorage[i] == NULL){
+        if(cStorage[i].get_id() == 0){
             return i;
         }
     }
@@ -47,16 +47,16 @@ void Database::expand_pStorage(){
     for(int i = 0; i < pLen; i++){
         tmp[i] = pStorage[i];
     }
-    delete [] pStorage;
+    delete pStorage;
     pStorage = tmp;
 }
 void Database::expand_cStorage(){
     cLen = cLen * 2;
-    Community* tmp = new Community[pLen];
+    Community* tmp = new Community[cLen];
     for(int i = 0; i < cLen; i++){
         tmp[i] = cStorage[i];
     }
-    delete [] cStorage;
+    delete cStorage;
     cStorage = tmp;
 }
 

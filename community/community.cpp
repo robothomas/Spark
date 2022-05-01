@@ -1,6 +1,6 @@
 #include<iostream>
 #include<string>
-#include"/usr/local/cs/cs251/show_mem.h"
+#include"/usr/local/cs/cs251/react.h"
 #include"community.h"
 #include"../post/post.h"
 #include"../text/text.h"
@@ -9,16 +9,16 @@ using namespace std;
 
 //Constructors
 Community::Community(){
-    id = Database.get_community_id(); //
+    id = database.get_community_id(); //
     len = 1;
-    string t = "";
+    string t = " ";
     title = t;
     Text d = Text();
     description = &d;
     *posts = new Post[len]; 
 }
 Community::Community(string t, Text *d){
-    id = Database.get_community_id(); 
+    id = database.get_community_id(); 
     len = 1;
     title = t;
     description = d;
@@ -34,7 +34,7 @@ Community::Community(const Community &c){
         posts[i] = c.posts[i];
     }
 }
-void Community::equals(const Community &c){
+Community& Community::operator=(const Community &c){
     id = c.id;
     len = c.len;
     title = c.title;
@@ -43,7 +43,10 @@ void Community::equals(const Community &c){
     for(int i = 0; i < len; i++){
         posts[i] = c.posts[i];
     }
+    return *this;
 }
+
+
 
 int Community::get_id(){return id;}
 
@@ -100,7 +103,7 @@ void Community::expand_posts(){
 
 //Read/write
 void Community::read_from(){
-//test
+
 }
 void Community::write_to(){
 

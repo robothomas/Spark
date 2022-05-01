@@ -18,8 +18,8 @@ public:
     Community(); 
     Community(string t, Text *d);
     Community(const Community &c);
+    Community& operator=(const Community &c);
     //Member Functions
-    void equals(const Community &c);
     int get_id();
     Text get_title();
     Text* get_description();
