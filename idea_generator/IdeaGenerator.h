@@ -5,35 +5,26 @@
 
 class IdeaGenerator {
     private:
-        int format;
-        int type;
-        int recent;
-        int difficulty;
+        string recent;
+        string difficulty;
 
+        bool checkValidRecency(string recency);
+        bool checkValidDifficulty(string range);
+        
     public:
         string searchQuery;
         IdeaGenerator();
         IdeaGenerator(const IdeaGenerator &idea);
         IdeaGenerator operator=(const IdeaGenerator &idea);
 
-        string getFormat();
-        string getType();
         string getRecency();
-        int getDifficulty();
-
-        void setFormat(string format);
-        void setFormat(int format);
+        string getDifficulty();
         
-        void setDifficulty(int difficulty);
-
-        void setType(string type);
-        void setType(int type);
-
+        void setDifficulty(string range);
         void setRecency(string recency);
-        void setRecency(int recency);
 
         void read_from(const char *mem);
         void write_to(char *mem);
-}
+};
 
 #endif
