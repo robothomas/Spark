@@ -3,7 +3,7 @@
 
 void State::read_from(char *mem) {
     panelType = _get_int(mem, 2);
-    mem += 2;
+    mem += 3;
 
     //ideaGen.read_from(mem);
     //newPost.read_from(mem);

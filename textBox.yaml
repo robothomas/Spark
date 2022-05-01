@@ -1,19 +1,18 @@
-- View:
-  style:
-    width: 80%
-    height: {height}
-    backgroundColor: white
-    position: absolute
-    top: {top}
-    left: 10%
-    borderWidth: 10%
-  children:
-    - Text:
+    - View:
       style:
-        position: relative
-        color: gray
-        top: 7%
-        left: 5%
-        fontSize: {fontSize}
-      index: {text_index}
-      
+        width: 80%
+        height: {height}
+        backgroundColor: white
+        position: absolute
+        top: {top}
+        left: 10%
+        borderWidth: 10%
+      children:
+        - Text:
+          style:
+            position: relative
+            color: gray
+            top: 7%
+            left: 5%
+            fontSize: {fontSize}
+          index: {text_index}
