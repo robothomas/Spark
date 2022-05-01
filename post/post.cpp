@@ -50,6 +50,14 @@ Text Post::get_description() {
     return description;
 }
 
+//Work in progess
+void Post::equals(const Post &p){
+    id = p.id;
+    communityIDs = p.communityIDs;
+    title = p.title;
+    description = Text(const Text &p.description);
+}
+
 void Post::read_from(char* mem){
     id = _get_int(mem, 2);
     mem += 2;
