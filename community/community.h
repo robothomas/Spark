@@ -21,7 +21,7 @@ public:
     //Member Functions
     void equals(const Community &c);
     Text get_title();
-    Text get_description();
+    Text* get_description();
     void change_title(string t);
     void change_description(Text *d);
     void add_post(Post *p);
