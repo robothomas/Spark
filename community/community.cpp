@@ -45,6 +45,7 @@ void Community::equals(const Community &c){
     }
 }
 
+int Community::get_id(){return id;}
 
 //Title
 Text Community::get_title(){ 

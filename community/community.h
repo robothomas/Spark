@@ -20,6 +20,7 @@ public:
     Community(const Community &c);
     //Member Functions
     void equals(const Community &c);
+    int get_id();
     Text get_title();
     Text* get_description();
     void change_title(string t);
