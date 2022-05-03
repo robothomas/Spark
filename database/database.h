@@ -6,6 +6,7 @@
 using namespace std;
 
 class Database {
+    int pID = 1;
     int pLen;
     int cLen;
     Post *pStorage;

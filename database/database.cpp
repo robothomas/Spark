@@ -7,12 +7,14 @@ using namespace std;
 
 //Constructors
 Database::Database(){
-        pLen = 1;
-        cLen = 1;
-        pStorage = new Post[pLen];
-        cStorage = new Community[cLen];
-    }
+    pID = 1;
+    pLen = 1;
+    cLen = 1;
+    pStorage = new Post[pLen];
+    cStorage = new Community[cLen];
+}
 Database::Database(int p, int c){
+    pID = 1;
     pLen = p;
     cLen = c;
     pStorage = new Post[pLen];
@@ -63,6 +65,8 @@ void Database::expand_cStorage(){
 //add items to storage
 void Database::add_post(Post* p){
     int i = get_post_id();
+    p->assignID(pID);
+    pID++;
     pStorage[i] = *p;
 }
 void Database::add_community(Community* c){
