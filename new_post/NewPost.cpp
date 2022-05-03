@@ -80,6 +80,10 @@ string NewPost::showFormError() {
         errors++;
     }
 
+    if ((titleError && communityError) || (descriptionError && communityError)) {
+        errorMsg += " and "
+    }
+
     if (titleError && descriptionError && communityError) {
         errorMsg += ", and ";
     }
@@ -90,9 +94,12 @@ string NewPost::showFormError() {
     }
 
     if (errors == 1) {
-        errorMsg += " was not filled out correctly" << endl;
+        errorMsg += " was not filled out correctly (1)" << endl;
+
     } else {
         errorMsg += " were not filled out correctly (" << errors << ')' << endl;
     }
+
+    return errorMsg;
 
 }
