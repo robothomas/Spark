@@ -1,11 +1,98 @@
 #include "NewPost.h"
 
-NewPost::read_from(fstream filestream) {
-    f >> title;
-    f.get();
+NewPost::NewPost() : Post() {
+    titleAdded = false;
+    descriptionAdded = false;
+    communityAdded = false;
+}
 
-    string text;
-    f >> text;
-    description.setText(text);
-    for(int i = 0; )
+bool NewPost::checkTitle() {
+    if (title == "") {
+        titleAdded = false;
+
+    } else {
+        titleAdded = true;
+    }
+
+    return titleAdded;
+}
+
+bool NewPost::checkDescription() {
+    if (description.text == "") {
+        descriptionAdded = false;
+
+    } else {
+        descriptionAdded = true;
+    }
+
+    return descriptionAdded;
+}
+
+bool NewPost::checkCommunities() {
+    if (communityIDs[0] != 0) {
+        communityAdded = true;
+
+    } else {
+        communityAdded = false;
+    }
+
+    return communityAdded;
+}
+
+bool NewPost::checkValidID() {
+    if (id == 0) {
+        return false;
+    }
+}
+
+bool NewPost::checkFormError() {
+    if (checkTitle() && checkDescription() && checkCommunities()) {
+        return true;
+
+    } else {
+        return false;
+    }
+}
+
+string NewPost::showFormError() {
+    int errors= 0;
+    bool titleError = !checkTitle();
+    bool descriptionError = !checkDescription();
+    bool communityError = !checkCommunities();
+
+    string errorMsg = "FORM ERROR: ";
+
+    if (titleError) {
+        errorMsg += "title";
+        errors++;
+    }
+
+    if (titleError && descriptionError) {
+        errorMsg += " and ";
+    }
+
+    if (titleError && descriptionError && communityError) {
+        errorMsg += ", ";
+    }
+
+    if (descriptionError) {
+        errorMsg += "description";
+        errors++;
+    }
+
+    if (titleError && descriptionError && communityError) {
+        errorMsg += ", and ";
+    }
+
+    if (communityError) {
+        errorMsg += "communities";
+        errors++;
+    }
+
+    if (errors == 1) {
+        errorMsg += " was not filled out correctly" << endl;
+    } else {
+        errorMsg += " were not filled out correctly (" << errors << ')' << endl;
+    }
+
 }

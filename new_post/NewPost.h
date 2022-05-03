@@ -1,17 +1,22 @@
-#include <ifstream>
+#include "../post/post.h"
 #include <string>
-#include "Text.h"
 
 #ifndef __NEWPOST_H__
 #define __NEWPOST_H__
 
-class NewPost {
-    string title;
-    Text description;
-    string attachFile;
-    void read_from(ifstream filestream);
-    void write_to();
-    void display();
+class NewPost : public Post {
+    private:
+        bool titleAdded;
+        bool descriptionAdded;
+        bool communityAdded;
+
+    public:
+        NewPost();
+        bool checkTitle();
+        bool checkDescription();
+        bool checkCommunities();
+        bool checkFormError();
+        string showFormError();
 }
 
 #endif
