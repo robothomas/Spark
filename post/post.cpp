@@ -28,6 +28,21 @@ Post::Post(int id_num, int communityID, string postTitle, Text postDescription) 
     description = postDescription;
 }
 
+/* May not really need either of these since the automatic constructors should do the same thing 
+// copy constructor
+Post::Post(const Post &p){
+    id = p.id;
+    communityIDs = p.communityIDs;
+    title = p.title;
+    description = p.description;
+}
+
+// operator= definition
+Post::operator=(const Post &p) {
+    Post(p);
+}
+*/
+
 /*
 Post::Post(int id_num, int communityIDs[], string postTitle) {
 
@@ -50,12 +65,8 @@ Text Post::get_description() {
     return description;
 }
 
-//Work in progess
-void Post::equals(const Post &p){
-    id = p.id;
-    communityIDs = p.communityIDs;
-    title = p.title;
-    description = Text(const Text &p.description);
+void Post::assignID(int id_num) {
+    id = id_num;
 }
 
 void Post::read_from(char* mem){
