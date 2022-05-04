@@ -84,26 +84,26 @@ Community* Database::get_community(int id){
 
 char *Database::write_to(char *mem) {
     for (int i = 0; i < pLen; i++) {
-        pStorage[i]->write_to(mem);
+        pStorage[i].write_to(mem);
         _put_char('\n', mem, 1);
     }
 
     for (int i = 0; i < cLen; i++) {
-        cStorage[i]->write_to(mem);
+        cStorage[i].write_to(mem);
         _put_char('\n', mem, 1);
     }
 
     return mem;
 }
 
-char *Database::read_from(char *mem) {
+char *Database::read_from( char *mem) {
     for (int i = 0; i < pLen; i++) {
-        mem = pStorage[i]->read_from(mem);
+        mem = pStorage[i].read_from(mem);
         mem++;
     }
 
     for (int i = 0; i < cLen; i++) {
-        mem = cStorage[i]->read_from(mem);
+        mem = cStorage[i].read_from(mem);
         mem++;
     }
 
