@@ -6,10 +6,11 @@
 #include "../text/text.h"
 
 class Post {
-    int id;
-    int *communityIDs;
-    string title;
-    Text description;
+    protected:
+        int id;
+        int *communityIDs;
+        string title;
+        Text description;
     public:
         Post();
         Post(int id_num, int communityID, string postTitle);
