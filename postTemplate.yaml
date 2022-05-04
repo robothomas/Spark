@@ -1,9 +1,3 @@
-- View:
-    style:
-      width: 100%
-      height: 100%
-      backgroundColor: lightyellow
-    children:
        - Text:
           style:
             position: relative
@@ -53,4 +47,3 @@
                  left: 1.5%
                  fontSize: 15
                index: {description}
-       

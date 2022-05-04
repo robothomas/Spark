@@ -1,11 +1,10 @@
-    - View:
-      style:
-        width: 42%
-        height: 8%
-        backgroundColor: white
-        position: absolute
-        top: 70%
-        left: 48%
-        borderWidth: 10%
-      children:
-        
+       - View:
+          style:
+            width: 42%
+            height: 8%
+            backgroundColor: white
+            position: absolute
+            top: 70%
+            left: 48%
+            borderWidth: 10%
+          children:
