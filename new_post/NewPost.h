@@ -20,6 +20,6 @@ class NewPost : public Post {
         bool checkValidID();
         bool checkFormError();
         string showFormError();
-}
+};
 
 #endif
