@@ -24,7 +24,7 @@ public:
     void add_community(Community* c);
     Post* get_post(int id);
     Community* get_community(int id);
-    int read_from(const char *mem);
+    char* read_from( char *mem);
     char *write_to(char *mem);
 };
 
