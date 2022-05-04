@@ -21,8 +21,8 @@ class Post {
         string get_title();
         Text get_description();
         void assignID(int id_num);
-        void read_from(char* mem);
-        void write_to(char* mem);
+        char *read_from(char* mem);
+        char *write_to(char* mem);
 };
 
 #endif

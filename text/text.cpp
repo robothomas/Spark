@@ -205,7 +205,7 @@ void Text::setUnderline(bool isUnderlined, int start, int end) {
     setBoolSecton(underlined, isUnderlined, start, end);
 }
 
-void Text::read_from(const char *mem) {
+char *Text::read_from(char *mem) {
     int memPos = 0; // keeps track of spot in mem
 
     fontSize = _get_int(mem, 2);
@@ -237,9 +237,11 @@ void Text::read_from(const char *mem) {
             memPos += i + 2;
         }
     }
+
+    return mem + memPos;
 }
 
-void Text::write_to(char *mem) {
+char *Text::write_to(char *mem) {
     _put_int(fontSize, mem, 2);
     mem += 2;
 
@@ -272,5 +274,7 @@ void Text::write_to(char *mem) {
 
     _put_char('\n', mem, 1);
     mem++;
+
+    return mem;
 }
 

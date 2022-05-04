@@ -69,7 +69,7 @@ void Post::assignID(int id_num) {
     id = id_num;
 }
 
-void Post::read_from(char* mem){
+char *Post::read_from(char* mem){
     id = _get_int(mem, 2);
     mem += 2;
     
@@ -91,11 +91,12 @@ void Post::read_from(char* mem){
     title = _get_tilde_terminated_string(mem);
     mem += title.size() + 1;
 
-    description.read_from(mem);
+    mem = description.read_from(mem);
+    return mem;
 }
 
 
-void Post::write_to(char *mem) {
+char *Post::write_to(char *mem) {
     _put_int(id, mem, 2);
     mem += 2;
 
@@ -113,5 +114,6 @@ void Post::write_to(char *mem) {
     _put_char('\n', mem, 1);
     mem++;
 
-    description.write_to(mem);
+    mem = description.write_to(mem);
+    return mem;
 }
