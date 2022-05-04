@@ -97,7 +97,7 @@ const bool *Text::getUnderlined() {
 }
 
 // for checking when initialized with default constructor
-bool isDefault() {
+bool Text::isDefault() {
     // check that length and fontSize are default
     if (len == 40 && fontSize == 20) {
 

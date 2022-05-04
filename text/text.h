@@ -35,6 +35,8 @@ class Text {
         const bool *getBold();
         const bool *getItalicized();
         const bool *getUnderlined();
+        bool isDefault();
+        void setDefault();
         void setDefault(int length);
         void setDefault(int length, int sizeFont);
         void setText();
