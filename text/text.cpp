@@ -96,6 +96,55 @@ const bool *Text::getUnderlined() {
     return underlined;
 }
 
+// for checking when initialized with default constructor
+bool isDefault() {
+    // check that length and fontSize are default
+    if (len == 40 && fontSize == 20) {
+
+        // check that text is set to spaces, and also that bold, italicized, and underlined are all set to false
+        for (int i = 0; i < len; len++) {
+            if (text[i] != ' ') {
+                return false;
+            }
+
+            if (bold[i] == true) {
+                return false;
+            }
+
+            if (italicized[i] == true) {
+                return false;
+            }
+
+            if (underlined[i] == true) {
+                return false;
+            }
+        }
+
+        return true;
+
+    } else {
+        return false; // in the case that length and/or fontSize is not set to default values
+    }
+}
+
+// Sets text to completely default state, as well as making length 40 and fontSize 20
+void Text::setDefault() {
+    len = 40;
+    fontSize = 20;
+
+    text = new char[len];
+    setText();
+
+    bold = new bool[len];
+    setBold(false);
+
+    italicized = new bool[len];
+    setItalics(false);
+
+    underlined = new bool[len];
+    setUnderline(false);
+}
+
 // Sets text to a default state (excluding font size). Assumes that all memory is unallocated or deallocated
 void Text::setDefault(int length) {
     len = length;
