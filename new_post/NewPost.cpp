@@ -7,7 +7,7 @@ NewPost::NewPost() : Post() {
 }
 
 bool NewPost::checkTitle() {
-    if (title == "") {
+    if (title == " ") {
         titleAdded = false;
 
     } else {
@@ -18,7 +18,7 @@ bool NewPost::checkTitle() {
 }
 
 bool NewPost::checkDescription() {
-    if (description.text == "") {
+    if (description.text == " ") {
         descriptionAdded = false;
 
     } else {
@@ -42,6 +42,9 @@ bool NewPost::checkCommunities() {
 bool NewPost::checkValidID() {
     if (id == 0) {
         return false;
+    }
+    else{
+        return true;
     }
 }
 
@@ -81,7 +84,7 @@ string NewPost::showFormError() {
     }
 
     if ((titleError && communityError) || (descriptionError && communityError)) {
-        errorMsg += " and "
+        errorMsg += " and ";
     }
 
     if (titleError && descriptionError && communityError) {
@@ -94,10 +97,12 @@ string NewPost::showFormError() {
     }
 
     if (errors == 1) {
-        errorMsg += " was not filled out correctly (1)" << endl;
+        errorMsg += " was not filled out correctly (1)\n";
 
     } else {
-        errorMsg += " were not filled out correctly (" << errors << ')' << endl;
+        errorMsg += " were not filled out correctly (";
+        errorMsg += to_string(errors);
+        errorMsg += ")\n";
     }
 
     return errorMsg;
