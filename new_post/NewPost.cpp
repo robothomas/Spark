@@ -18,7 +18,7 @@ bool NewPost::checkTitle() {
 }
 
 bool NewPost::checkDescription() {
-    if (description.text == " ") {
+    if (description.getText() == " ") {
         descriptionAdded = false;
 
     } else {
