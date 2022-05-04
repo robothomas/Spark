@@ -9,7 +9,7 @@ using namespace std;
 
 //Constructors
 Community::Community(){
-    id = database.get_community_id(); //
+    id = database.get_community_id();////
     len = 1;
     string t = " ";
     title = t;
@@ -112,7 +112,7 @@ void Community::read_from(char *mem){
     mem++;
     title = _get_tilde_terminated_string(mem);
     mem += title.size() + 1;
-    description.read_from(mem); //
+    description->read_from(mem);
 }
 void Community::write_to(char *mem){
     _put_int(id, mem, 2);
@@ -123,5 +123,5 @@ void Community::write_to(char *mem){
     mem += title.length() + 1;
     _put_char('\n', mem, 1);
     mem++;
-    description.write_to(mem); //
+    description->write_to(mem);
 }
