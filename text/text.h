@@ -47,8 +47,8 @@ class Text {
         void setUnderline(bool isUnderlined);
         void setUnderline(bool isUnderlined, int start, int end);
 
-        void read_from(const char *mem);
-        void write_to(char *mem);
+        char *read_from(char *mem);
+        char *write_to(char *mem);
 };
 
 #endif
