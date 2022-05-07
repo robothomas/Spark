@@ -4,6 +4,7 @@
 #include<string>
 #include"../text/text.h"
 #include"../post/post.h"
+#include"../database/database.h"
 using namespace std;
 
 class Community{
@@ -15,8 +16,8 @@ class Community{
 
 public:
     //Constructors
-    Community(); 
-    Community(string t, Text *d);
+    Community(Database* dt); 
+    Community(Database* dt, string t, Text *d);
     Community(const Community &c);
     Community& operator=(const Community &c);
     //Member Functions

@@ -1,3 +1,10 @@
 confirm Are you sure?
 affirmative yes
 negative no
+Find Communities
+Saved Posts
+Saved Communities
+Your Posts
+Settings
+Account Details
+Log Out

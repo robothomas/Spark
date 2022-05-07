@@ -82,7 +82,7 @@ Community* Database::get_community(int id){
     return &cStorage[id];
 }
 
-char *Database::write_to(char *mem) {
+void Database::write_to(char *mem) {
     for (int i = 0; i < pLen; i++) {
         pStorage[i].write_to(mem);
         _put_char('\n', mem, 1);
@@ -92,20 +92,16 @@ char *Database::write_to(char *mem) {
         cStorage[i].write_to(mem);
         _put_char('\n', mem, 1);
     }
-
-    return mem;
 }
 
-char *Database::read_from( char *mem) {
+void Database::read_from( char *mem) {
     for (int i = 0; i < pLen; i++) {
         mem = pStorage[i].read_from(mem);
         mem++;
     }
 
     for (int i = 0; i < cLen; i++) {
-        mem = cStorage[i].read_from(mem);
+        cStorage[i].read_from(mem);
         mem++;
     }
-
-    return mem;
 }

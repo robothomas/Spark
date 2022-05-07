@@ -44,14 +44,14 @@
             top: -20
             left: 22.5%
             fontSize: 20
-          index: 76  
+          index: {user}  
        - Text:
           style:
             position: relative
             top: -4.5%
             left: 23%
             fontSize: 11
-          index: {Email} 
+          index: {email} 
 
        - Button: 
           style:

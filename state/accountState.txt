@@ -1,4 +1,8 @@
 4
-user
-password
-email
+user~ password~ email~
+Saved Posts
+Saved Communities
+Your Posts
+Settings
+Account Details
+Log Out
