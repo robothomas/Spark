@@ -17,7 +17,7 @@ class State {
   //NewPost newPost;
   //Community community;
   Post post;
-  //Account account;
+  Account account;
   //SearchResults results;
 
   public:
