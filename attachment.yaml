@@ -1,0 +1,33 @@
+       - View:
+          style:
+            width: 28%
+            height: 8%
+            backgroundColor: white
+            position: absolute
+            top: 70%
+            left: 10%
+            borderWidth: 10%
+            borderRadius: 60
+          children:
+             - Text:
+                style:
+                  position: relative
+                  color: black
+                  top: 7%
+                  left: 5%
+                  fontSize: 18
+                index: {attachment}
+             - View:
+                style:
+                  position: absolute
+                  top: 30%
+                  left: 70%
+                  width: 0
+                  height: 0
+                  backgroundColor: transparent
+                  borderLeftWidth: 8
+                  borderRightWidth: 8
+                  borderTopWidth: 13
+                  borderLeftColor: transparent
+                  borderRightColor: transparent
+                  borderBottomColor: black
