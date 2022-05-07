@@ -1,8 +1,6 @@
 #include<iostream>
-#include"/usr/local/cs/cs251/react.h
-#include "account.h"
-#include"../post/post.h"
-#include"../community/community.h"
+#include"/usr/local/cs/cs251/react.h"
+#include"account.h"
 using namespace std;
 
 //Constructor
@@ -38,35 +36,55 @@ void Account::change_email(string em){
 
 //Saved posts
 void Account::add_saved_post(Post* p){
-    int i = get_saved_posts_id();
-    saved_posts[i] = p;
+    int i = get_saved_post_id();
+    saved_posts[i] = *p;
 }
 void Account::remove_saved_post(int id){
-    saved_posts[id] = 0; 
+    Post* tmp = new Post[spl];
+    for(int i = 0; i < spl; i++){
+        if(i != id){
+            tmp[i] = saved_posts[i];
+        }
+    }
+    delete saved_posts;
+    saved_posts = tmp;
 }
 
 //Saved communities
 void Account::add_saved_community(Community* c){
     int i = get_saved_communities_id();
-    saved_communities[i] = c;
+    saved_communities[i] = *c;
 }
 void Account::remove_saved_community(int id){
-    saved_communities[id] = 0;
-}
+    Community* tmp = new Community[scl];
+    for(int i = 0; i < scl; i++){
+        if(i != id){
+            tmp[i] = saved_communities[i];
+        }
+    }
+    delete saved_communities;
+    saved_communities = tmp;}
 
 //New posts
 void Account::add_new_post(Post* p){
     int i = get_your_posts_id();
-    your_posts[i] = p;
+    your_posts[i] = *p;
 }
 void Account::remove_your_post(int id){
-    your_posts[id] = 0;
+    Post* tmp = new Post[ypl];
+    for(int i = 0; i < ypl; i++){
+        if(i != id){
+            tmp[i] = your_posts[i];
+        }
+    }
+    delete your_posts;
+    your_posts = tmp;
 }
 
 //get ids
 int Account::get_your_posts_id(){
     for(int i = 0; i < ypl; i++){
-        if(your_posts[i] == 0){
+        if(your_posts[i].get_id() == 0){///////////////////////////
             return i;
         }
     }
@@ -75,16 +93,16 @@ int Account::get_your_posts_id(){
 }
 int Account::get_saved_post_id(){
     for(int i = 0; i < spl; i++){
-        if(saved_posts[i] == 0){
+        if(saved_posts[i].get_id() == 0){
             return i;
         }
     }
     expand_saved_posts();
-    return get_saved_posts_id();
+    return get_saved_post_id();
 }
 int Account::get_saved_communities_id(){
     for(int i = 0; i < scl; i++){
-        if(saved_communities[i] == 0){
+        if(saved_communities[i].get_id() == 0){
             return i;
         }
     }
@@ -121,11 +139,12 @@ void Account::expand_saved_communities(){
     saved_communities = tmp;
 }
 
+/*
 //Read/write
 void Account::read_from(char* mem){
 
 }
 void Account::write_to(){
-    
+   
 }
-
+*/

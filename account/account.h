@@ -2,6 +2,8 @@
 #define __ACCOUNT_H__
 #include<iostream>
 #include<string> 
+#include"../post/post.h"
+#include"../community/community.h"
 using namespace std;
 
 class Account{
@@ -11,12 +13,12 @@ class Account{
     string user;
     string password;
     string email;
-    Posts* your_posts;
+    Post* your_posts;
     Post* saved_posts;
     Community* saved_communities;
 public:
-    account();
-    account(string user, string password, string email);
+    Account();
+    Account(string user, string password, string email);
     string get_user();
     string get_password();
     string get_email();
@@ -38,4 +40,6 @@ public:
     void write_to();
     void display();
 
-}
+};
+
+#endif
