@@ -57,7 +57,7 @@ void display(State &state) {
             _add_yaml("baseTemplate.yaml");
             break;
         case 4:
-            //_add_yaml("postTemplate.yaml", {{"title", 7}, {"description", 25}});
+            _add_yaml("accountTemplate.yaml", {{"title", 7}, {"description", 25}});
             break;
         case 5:
             //_add_yaml("postTemplate.yaml", {{"title", 7}, {"description", 25}});
