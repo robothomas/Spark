@@ -8,8 +8,8 @@
 using namespace std;
 
 //Constructors
-Community::Community(){
-    id = database.get_community_id();////
+Community::Community(Database* dt){
+    id = dt->get_community_id();////
     len = 1;
     string t = " ";
     title = t;
@@ -17,8 +17,8 @@ Community::Community(){
     description = &d;
     *posts = new Post[len]; 
 }
-Community::Community(string t, Text *d){
-    id = database.get_community_id(); 
+Community::Community(Database* dt, string t, Text *d){
+    id = dt->get_community_id(); 
     len = 1;
     title = t;
     description = d;
