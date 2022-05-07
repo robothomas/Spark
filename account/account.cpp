@@ -139,12 +139,21 @@ void Account::expand_saved_communities(){
     saved_communities = tmp;
 }
 
-/*
+
 //Read/write
 void Account::read_from(char* mem){
-
+    user = _get_tilde_terminated_string(mem);
+    mem += user.size();
+    password = _get_tilde_terminated_string(mem);
+    mem += password.size();
+    email = _get_tilde_terminated_string(mem);
 }
-void Account::write_to(){
+void Account::write_to(char* mem){
+    _put_tilde_terminated_string(user, mem);
+    mem += user.length() + 1;
+    _put_tilde_terminated_string(password, mem);
+    mem += password.length() + 1;
+    _put_tilde_terminated_string(email, mem);
+    mem += email.length() + 1;
    
 }
-*/

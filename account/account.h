@@ -37,9 +37,8 @@ public:
     void expand_saved_posts();
     void expand_saved_communities();
     void read_from(char* mem);
-    void write_to();
+    void write_to(char* mem);
     void display();
-
 };
 
 #endif
