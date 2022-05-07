@@ -1,0 +1,60 @@
+       - View:
+          style:
+            width: 35%
+            height: 8%
+            backgroundColor: white
+            position: absolute
+            top: 60%
+            left: 14%
+            borderWidth: 10%
+          children:
+             - Text:
+                style:
+                  position: relative
+                  left: 5%
+                  fontSize: 21
+                index: {recency}
+             - View:
+                style:
+                  position: absolute
+                  top: 30%
+                  left: 80%
+                  width: 0
+                  height: 0
+                  backgroundColor: transparent
+                  borderLeftWidth: 8
+                  borderRightWidth: 8
+                  borderTopWidth: 13
+                  borderLeftColor: transparent
+                  borderRightColor: transparent
+                  borderBottomColor: black
+       - View:
+          style:
+            width: 35%
+            height: 8%
+            backgroundColor: white
+            position: absolute
+            top: 60%
+            left: 53%
+            borderWidth: 10%
+          children:
+             - Text:
+                style:
+                  position: relative
+                  left: 3%
+                  fontSize: 21
+                index: {difficulty}
+             - View:
+                style:
+                  position: absolute
+                  top: 30%
+                  left: 80%
+                  width: 0
+                  height: 0
+                  backgroundColor: transparent
+                  borderLeftWidth: 8
+                  borderRightWidth: 8
+                  borderTopWidth: 13
+                  borderLeftColor: transparent
+                  borderRightColor: transparent
+                  borderBottomColor: black
