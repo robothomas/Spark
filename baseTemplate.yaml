@@ -7,10 +7,12 @@
              position: absolute
              top: 90%
            children:
-              - View:
+              - Button:
                  style:
                     width: 25%
                     borderWidth: 10%
+                 on_touch: 
+                    backgroundColor: orange
                  children:
                     - View:
                        style:
@@ -43,10 +45,12 @@
                               left: 36%
 
 
-              - View:
+              - Button:
                  style:
                     width: 25% 
                     borderWidth: 10%
+                 on_touch:
+                    backgroundColor: orange
                  children:
                     - View:
                        style:
@@ -131,10 +135,12 @@
                                 left: 65.% 
 
 
-              - View:
+              - Button:
                  style:
                     width: 25%
                     borderWidth: 10%
+                 on_touch:
+                    backgroundColor: orange
                  children:
                     - View:
                        style:
@@ -166,10 +172,12 @@
                                left: 20%
 
 
-              - View:
+              - Button:
                  style:
                     width: 25%
                     borderWidth: 10%
+                 on_touch:
+                    backgroundColor: orange
                  children:
                     - View:
                        style:
