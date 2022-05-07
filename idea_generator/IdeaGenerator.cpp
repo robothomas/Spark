@@ -24,8 +24,11 @@ IdeaGenerator::IdeaGenerator(const IdeaGenerator &idea) {
     searchQuery = idea.searchQuery;
 }
 
-IdeaGenerator IdeaGenerator::operator=(const &idea) {
-    IdeaGenerator(idea);
+IdeaGenerator IdeaGenerator::operator=(const IdeaGenerator &idea) {
+    recent = idea.recent;
+    difficulty = idea.difficulty;
+    searchQuery = idea.searchQuery;
+    return *this;
 }
 
 bool IdeaGenerator::checkValidRecency(string recency) {
@@ -52,7 +55,7 @@ string IdeaGenerator::getDifficulty() {
         return difficulty;
 
     } else {
-        cerr << "WARNING: Contains invalid range. Returning Any by default."
+        cerr << "WARNING: Contains invalid range. Returning Any by default.";
         difficulty = "Any";
         return difficulty;
     }
@@ -63,7 +66,7 @@ void IdeaGenerator::setDifficulty(string range) {
         difficulty = range;
 
     } else {
-        cerr << "WARNING: Invalid range. Setting to Any by default."
+        cerr << "WARNING: Invalid range. Setting to Any by default.";
         difficulty = "Any";
     }
 }
