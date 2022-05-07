@@ -30,8 +30,8 @@ public:
     Post* get_post(int id);
     int get_open_id();
     void expand_posts();
-    char* read_from(char *mem);
-    char* write_to(char *mem);
+    void read_from(char *mem);
+    void write_to(char *mem);
 };
 
 #endif

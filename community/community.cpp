@@ -107,15 +107,14 @@ Needs method to store and select what posts get displayed
 for now, reverse order of database index
 need to resprend in txt file?
 */
-char* Community::read_from(char *mem){
+void Community::read_from(char *mem){
     id = _get_int(mem, 2);
     mem++;
     title = _get_tilde_terminated_string(mem);
     mem += title.size() + 1;
     description->read_from(mem);
-    return mem;
 }
-char* Community::write_to(char *mem){
+void Community::write_to(char *mem){
     _put_int(id, mem, 2);
     mem += 2;
     _put_char('\n', mem, 1);
@@ -125,5 +124,4 @@ char* Community::write_to(char *mem){
     _put_char('\n', mem, 1);
     mem++;
     description->write_to(mem);
-    return mem;
 }
