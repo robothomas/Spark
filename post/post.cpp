@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 #include "post.h"
-#include "../text/text.h"
+//#include "../text/text.h"
 #include "/usr/local/cs/cs251/react.h"
 using namespace std;
 
@@ -53,6 +53,21 @@ Post::Post(int id_num, int communityIDs[], string postTitle, Text postDescriptio
 }
 */
 
+int Post::size_in_bytes() {
+    int size = 3; // id + newline
+
+    for (int i = 0; communityIDs[i]; i++) {
+        size += 2;
+    }
+
+    size++; // for newline
+
+    size += title.size() + 1;
+    size += description.size_in_bytes();
+
+    return size;
+}
+
 int Post::get_id() {
     return id;
 }
@@ -69,9 +84,10 @@ void Post::assignID(int id_num) {
     id = id_num;
 }
 
-char *Post::read_from(char* mem){
+void Post::read_from(const char* mem){
+    int memPos = 0;
     id = _get_int(mem, 2);
-    mem += 2;
+    memPos += 2;
     
     int j = 0;
     for (int i = 0; mem[i] != '~'; i++) {
@@ -82,21 +98,20 @@ char *Post::read_from(char* mem){
 
     communityIDs = new int[j];
     for(int i = 0; i < j; i++){
-        communityIDs[i] = _get_int(mem, 2);
-        mem += 2;
+        communityIDs[i] = _get_int(mem + memPos, 2);
+        memPos += 2;
     }
 
-    mem++; // removes new line
+    memPos++; // counts extra new line
 
-    title = _get_tilde_terminated_string(mem);
-    mem += title.size() + 1;
+    title = _get_tilde_terminated_string(mem + memPos);
+    memPos += title.size() + 1;
 
-    mem = description.read_from(mem);
-    return mem;
+    description.read_from(mem);
 }
 
 
-char *Post::write_to(char *mem) {
+void Post::write_to(char *mem) {
     _put_int(id, mem, 2);
     mem += 2;
 
@@ -114,6 +129,5 @@ char *Post::write_to(char *mem) {
     _put_char('\n', mem, 1);
     mem++;
 
-    mem = description.write_to(mem);
-    return mem;
+    description.write_to(mem);
 }

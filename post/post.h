@@ -19,11 +19,12 @@ class Post {
         Post(int id_num, int *communityIDNums, string postTitle, Text postDescription);
         //Post(const Post &p);
         int get_id();
+        int size_in_bytes();
         string get_title();
         Text get_description();
         void assignID(int id_num);
-        char *read_from(char* mem);
-        char *write_to(char* mem);
+        void read_from(const char* mem);
+        void write_to(char* mem);
 };
 
 #endif

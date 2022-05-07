@@ -3,18 +3,20 @@
 
 #include<string>
 #include"/usr/local/cs/cs251/react.h"
-//#include "idea_generator/IdeaGenerator.h"
-//#include "new_post/NewPost.h"
+//#include "../idea_generator/IdeaGenerator.h"
+#include "../new_post/NewPost.h"
 #include "../post/post.h"
-//#include "community.h"
-//#include "account.h"
-//#include "results/SearchResults.h"
-#include "../text/text.h"
+//#include "../community/community.h"
+//#include "../account/account.h"
+//#include "../results/SearchResults.h"
+//#include "../text/text.h"
 using namespace std;
 
 class State {
+  int label_offset;
+
   //IdeaGenerator ideaGen;
-  //NewPost newPost;
+  NewPost newPost;
   //Community community;
   Post post;
   //Account account;
@@ -22,6 +24,7 @@ class State {
 
   public:
     int panelType = 0; // 0 is idea generator, 1 is new post, 2 is community, 3 is post, 4 is account, 5 is search results
+    int get_label_offset();
     void read_from(char *mem); //20 25114
     void write_to(char *mem);
     void update();

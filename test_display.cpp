@@ -22,12 +22,12 @@ int main() {
     //cerr << "read global_mem" << endl;
     state.read_from(_global_mem);
     //cerr << "used read_from" << endl;
-    //ifstream f_label("labels.txt");
-    //f_label.read(_global_mem + state.label_offset, 4000);
+    ifstream f_label("labels.txt");
+    f_label.read(_global_mem + state.label_offset, 4000);
     test_display();
     _write_global_yaml_to_file("react.yaml");
     //cerr << "wrote yaml to react" << endl;
     _write_global_mem_to_file("end_mem");
     //cerr << "wrote global_mem to file" << endl;
-    //delete _global_mem;
+    delete _global_mem;
 }

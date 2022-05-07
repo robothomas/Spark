@@ -8,26 +8,33 @@ void State::update(){
             }
         }
 
-        updateNewPost();
-
-        
+        switch (panelType) {
+            case 1:
+                updateNewPost();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        } 
     }
 }
 
 void updateNewPost() {
-    if (panelType == 1) {
+    if (_event_id_is("+")) {
+        _add_yaml("../confirmPopUp.yaml", {{"confirmation", index}, {"affirmative", yesSpot}, {"negative", noSpot}})
+    }
 
-        if (_event_id_is("+")) {
-            // create pop-up
-        }
+    if (_event_id_is("Yes")) {
+        panelType = 3;
+        // put data into Post here, likely through database
+    }
 
-        if (_event_id_is("Yes")) {
-            panelType = 3;
-            // put data into Post here, likely through database
-        }
-
-        if (_event_id_is("No")) {
-            // delete pop-up
-        }
+    if (_event_id_is("No")) {
+        // delete pop-up
     }
 }

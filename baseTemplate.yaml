@@ -13,6 +13,7 @@
                     borderWidth: 10%
                  on_touch: 
                     backgroundColor: orange
+                 id: menu_0
                  children:
                     - View:
                        style:
@@ -51,6 +52,7 @@
                     borderWidth: 10%
                  on_touch:
                     backgroundColor: orange
+                 id: menu_1
                  children:
                     - View:
                        style:
@@ -141,6 +143,7 @@
                     borderWidth: 10%
                  on_touch:
                     backgroundColor: orange
+                 id: menu_2
                  children:
                     - View:
                        style:
@@ -178,6 +181,7 @@
                     borderWidth: 10%
                  on_touch:
                     backgroundColor: orange
+                 id: menu_3
                  children:
                     - View:
                        style:

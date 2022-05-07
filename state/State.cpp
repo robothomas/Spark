@@ -6,12 +6,16 @@ void State::read_from(char *mem) {
     mem += 3;
 
     //ideaGen.read_from(mem);
-    mem = newPost.read_from(mem);
+    //mem += ideaGen.size_in_bytes();
+    newPost.read_from(mem);
+    //mem += newPost.size_in_bytes();
+    //account.read_from(f);
+    //mem += account.size_in_bytes();
+
     //community.read_from(mem);
     //mem = post.read_from(mem);
-    //account.read_from(f);
+    
     //results.read_from(f);
-    //ideaGen.read_from(f);
 }
 
 void State::write_to(char *mem) {
@@ -22,7 +26,8 @@ void State::write_to(char *mem) {
     mem++;
 
     //ideaGen.write_to(mem);
-    mem = newPost.write_to(mem);
+    newPost.write_to(mem);
+    mem += newPost.size_in_bytes();
     //community.write_to(mem);
     //mem = post.write_to(mem);
     //account.write_to(mem);

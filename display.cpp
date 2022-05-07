@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-void addRatingBulb(bool on, float left) {
+void addRatingBulb(int rank, bool on, float left) {
     // converts the numeric value to two usable strings (for percentages)
 
     string leftPercent = to_string(left) + '%';
@@ -11,9 +11,9 @@ void addRatingBulb(bool on, float left) {
     string leftWithOffset = to_string(offset) + '%';
 
     if (on) {
-        _add_yaml("new_post/ratingBulb.yaml", {{"left", leftPercent}, {"ratingColor", "yellow"}, {"leftWithOffset", leftWithOffset}});
+        _add_yaml("new_post/ratingBulb.yaml", {{"rating", rank}, {"left", leftPercent}, {"ratingColor", "yellow"}, {"leftWithOffset", leftWithOffset}});
     } else {
-        _add_yaml("new_post/ratingBulb.yaml", {{"left", leftPercent}, {"ratingColor", "white"}, {"leftWithOffset", leftWithOffset}});
+        _add_yaml("new_post/ratingBulb.yaml", {{"rating", rank}, {"left", leftPercent}, {"ratingColor", "white"}, {"leftWithOffset", leftWithOffset}});
     }
 }
 
