@@ -1,11 +1,18 @@
+       - Text:
+          style:
+            position: relative
+            top: 52%
+            left: 17%
+            fontSize: 20
+          index: {recency}
        - View:
           style:
             width: 35%
             height: 8%
             backgroundColor: white
             position: absolute
-            top: 60%
-            left: 14%
+            top: 58%
+            left: 9%
             borderWidth: 10%
           children:
              - Text:
@@ -13,7 +20,7 @@
                   position: relative
                   left: 5%
                   fontSize: 21
-                index: {recency}
+                index: {recencyType}
              - View:
                 style:
                   position: absolute
@@ -28,22 +35,29 @@
                   borderLeftColor: transparent
                   borderRightColor: transparent
                   borderBottomColor: black
+       - Text:
+          style:
+            position: absolute
+            top: 52%
+            left: 63.5%
+            fontSize: 20
+          index: {difficulty}
        - View:
           style:
-            width: 35%
+            width: 40%
             height: 8%
             backgroundColor: white
             position: absolute
-            top: 60%
-            left: 53%
+            top: 58%
+            left: 51%
             borderWidth: 10%
           children:
              - Text:
                 style:
                   position: relative
-                  left: 3%
+                  left: 5%
                   fontSize: 21
-                index: {difficulty}
+                index: {difficultyType}
              - View:
                 style:
                   position: absolute
