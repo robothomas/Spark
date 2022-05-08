@@ -1,8 +1,6 @@
 #include<iostream>
 #include"/usr/local/cs/cs251/react.h"
 #include"database.h"
-#include"../community/community.h"
-#include"../post/post.h"
 using namespace std;
 
 //Constructors
@@ -11,7 +9,7 @@ Database::Database(){
     pLen = 1;
     cLen = 1;
     pStorage = new Post[pLen];
-    *cStorage = new Community[cLen];
+    cStorage = new Community[cLen];
 }
 Database::Database(int p, int c){
     pID = 1;
@@ -54,8 +52,7 @@ void Database::expand_pStorage(){
 }
 void Database::expand_cStorage(){
     cLen = cLen * 2;
-    Community* tmp;
-    tmp = new Community[cLen];
+    Community* tmp = new Community[cLen];
     for(int i = 0; i < cLen; i++){
         tmp[i] = cStorage[i];
     }
@@ -97,7 +94,7 @@ void Database::write_to(char *mem) {
 
 void Database::read_from( char *mem) {
     for (int i = 0; i < pLen; i++) {
-        mem = pStorage[i].read_from(mem);
+        pStorage[i].read_from(mem);
         mem++;
     }
 
