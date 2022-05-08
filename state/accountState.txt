@@ -1,8 +1,8 @@
 4
-user~ password~ email~
 Saved Posts
 Saved Communities
 Your Posts
 Settings
 Account Details
 Log Out
+user~ email~ password~
