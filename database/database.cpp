@@ -11,7 +11,7 @@ Database::Database(){
     pLen = 1;
     cLen = 1;
     pStorage = new Post[pLen];
-    cStorage = new Community[cLen];
+    *cStorage = new Community[cLen];
 }
 Database::Database(int p, int c){
     pID = 1;
@@ -54,7 +54,8 @@ void Database::expand_pStorage(){
 }
 void Database::expand_cStorage(){
     cLen = cLen * 2;
-    Community* tmp = new Community[cLen];
+    Community* tmp;
+    tmp = new Community[cLen];
     for(int i = 0; i < cLen; i++){
         tmp[i] = cStorage[i];
     }

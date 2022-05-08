@@ -9,7 +9,7 @@ using namespace std;
 
 //Constructors
 Community::Community(Database* dt){
-    id = dt->get_community_id();////
+    id = dt->get_community_id();
     len = 1;
     string t = " ";
     title = t;
