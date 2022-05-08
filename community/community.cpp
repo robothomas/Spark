@@ -2,14 +2,11 @@
 #include<string>
 #include"/usr/local/cs/cs251/react.h"
 #include"community.h"
-#include"../post/post.h"
-#include"../text/text.h"
-#include"../database/database.h"
 using namespace std;
 
 //Constructors
-Community::Community(Database* dt){
-    id = dt->get_community_id();
+Community::Community(){
+    id = 1;
     len = 1;
     string t = " ";
     title = t;
@@ -17,8 +14,8 @@ Community::Community(Database* dt){
     description = &d;
     *posts = new Post[len]; 
 }
-Community::Community(Database* dt, string t, Text *d){
-    id = dt->get_community_id(); 
+Community::Community(int i, string t, Text *d){
+    id = i; 
     len = 1;
     title = t;
     description = d;
@@ -45,8 +42,6 @@ Community& Community::operator=(const Community &c){
     }
     return *this;
 }
-
-
 
 int Community::get_id(){return id;}
 
