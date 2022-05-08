@@ -9,7 +9,7 @@ void State::read_from(char *mem) {
     mem = newPost.read_from(mem);
     //community.read_from(mem);
     //mem = post.read_from(mem);
-    //account.read_from(f);
+    account.read_from(mem);
     //results.read_from(f);
     //ideaGen.read_from(f);
 }
@@ -25,7 +25,7 @@ void State::write_to(char *mem) {
     mem = newPost.write_to(mem);
     //community.write_to(mem);
     //mem = post.write_to(mem);
-    //account.write_to(mem);
+    account.write_to(mem);
     //results.write_to(mem);
     //ideaGen.write_to(mem);
 }

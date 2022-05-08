@@ -3,18 +3,18 @@
 
 #include<string>
 #include"/usr/local/cs/cs251/react.h"
-//#include "idea_generator/IdeaGenerator.h"
-//#include "new_post/NewPost.h"
+//#include "../idea_generator/IdeaGenerator.h"
+#include "../new_post/NewPost.h"
 #include "../post/post.h"
-//#include "community.h"
-//#include "account.h"
-//#include "results/SearchResults.h"
+//#include "../community/community.h"
+#include "../account/account.h"
+//#include "../results/SearchResults.h"
 #include "../text/text.h"
 using namespace std;
 
 class State {
   //IdeaGenerator ideaGen;
-  //NewPost newPost;
+  NewPost newPost;
   //Community community;
   Post post;
   Account account;
@@ -25,6 +25,7 @@ class State {
     void read_from(char *mem); //20 25114
     void write_to(char *mem);
     void update();
+    void updateNewPost();
     void handle_button_event(int i); 
 };
 
