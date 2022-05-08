@@ -5,6 +5,6 @@ class SearchResults {
     void read_from();
     void write_to();
     void display();
-}
+};
 
 #endif

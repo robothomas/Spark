@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-void addRatingBulb(bool on, float left) {
+void addRatingBulb(int rank, bool on, float left) {
     // converts the numeric value to two usable strings (for percentages)
 
     string leftPercent = to_string(left) + '%';
@@ -11,9 +11,9 @@ void addRatingBulb(bool on, float left) {
     string leftWithOffset = to_string(offset) + '%';
 
     if (on) {
-        _add_yaml("new_post/ratingBulb.yaml", {{"left", leftPercent}, {"ratingColor", "yellow"}, {"leftWithOffset", leftWithOffset}});
+        _add_yaml("new_post/ratingBulb.yaml", {{"rating", rank}, {"left", leftPercent}, {"ratingColor", "yellow"}, {"leftWithOffset", leftWithOffset}});
     } else {
-        _add_yaml("new_post/ratingBulb.yaml", {{"left", leftPercent}, {"ratingColor", "white"}, {"leftWithOffset", leftWithOffset}});
+        _add_yaml("new_post/ratingBulb.yaml", {{"rating", rank}, {"left", leftPercent}, {"ratingColor", "white"}, {"leftWithOffset", leftWithOffset}});
     }
 }
 
@@ -34,38 +34,43 @@ void addRatingArray(int rating) {
 }
 
 void display(State &state) {
+    _add_yaml("PhoneView.yaml"); // always here regardless of the panel - the main view
+    
     switch(state.panelType) {
-        case 0:
-            //_add_yaml("postTemplate.yaml", {{"title", 7}, {"description", 25}});
+        case 0: // Idea Generator
+            _add_yaml("searchBar.yaml", {{"top", "50%"}, {"query", 226}});
+            _add_yaml("ideaGenTemplate.yaml", {{"recency", _get_label_index("recency", state.label_offset())}, {"recencyType", 7}, {"difficulty", _get_label_index("difficulty", state.label_offset())}, {"difficultyType", 25}});
             break;
-        case 1:
-            _add_yaml("PhoneView.yaml");
+
+        case 1: // New Post
             _add_yaml("searchBar.yaml", {{"top", "5%"}, {"query", 226}});
             _add_yaml("new_post/postCommunity.yaml", {{"width", "33%"}, {"left", "10%"}, {"name", 226}});
             _add_yaml("new_post/postCommunity.yaml", {{"width", "36%"}, {"left", "45%"}, {"name", 244}});
             _add_yaml("textBox.yaml", {{"top", "25%"}, {"height", "8%"}, {"fontSize", 18}, {"text_index", 9}});
             _add_yaml("textBox.yaml", {{"top", "35%"}, {"height", "33%"}, {"fontSize", 15}, {"text_index", 27}});
             addRatingArray(3);
-            _add_yaml("baseTemplate.yaml");
             break;
-        case 2:
+
+        case 2: // Community
             //_add_yaml("postTemplate.yaml", {{"title", 7}, {"description", 25}});
             break;
-        case 3:
-            _add_yaml("PhoneView.yaml");
+
+        case 3: // Post
             _add_yaml("postTemplate.yaml", {{"title", 9}, {"description", 27}});
-            _add_yaml("baseTemplate.yaml");
             break;
-        case 4:
-            _add_yaml("PhoneView.yaml");
+
+        case 4: // Account
             _add_yaml("accountTemplate.yaml", {{"user", 1}, {"email", 7}});
-            _add_yaml("baseTemplate.yaml");
             break;
-        case 5:
+
+        case 5: // Search Results
             //_add_yaml("postTemplate.yaml", {{"title", 7}, {"description", 25}});
             break;
+
         default:
             _add_yaml("postTemplate.yaml", {{"title", 7}, {"description", 25}});
             break;
     }
+
+    _add_yaml("baseTemplate.yaml"); // always calls this last - the base template with a button to each tab
 }

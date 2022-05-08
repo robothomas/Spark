@@ -8,6 +8,7 @@ using namespace std;
 
 class Text {
     private:
+        int size = 0;
         char *text;
         bool *bold;
         bool *italicized;
@@ -49,7 +50,8 @@ class Text {
         void setUnderline(bool isUnderlined);
         void setUnderline(bool isUnderlined, int start, int end);
 
-        char *read_from(char *mem);
+        int size_in_bytes();
+        void read_from(const char *mem);
         char *write_to(char *mem);
 };
 

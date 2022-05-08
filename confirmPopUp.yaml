@@ -1,4 +1,4 @@
-      - View:
+       - View:
           style:
             width: 90%
             height: 34%
@@ -15,8 +15,8 @@
                   top: 7%
                   left: 20%
                   fontSize: 28
-                index: {Are you sure?}
-             - View:
+                index: {confirmation}
+             - Button:
                 style:
                   width: 29%
                   height: 29%
@@ -25,17 +25,19 @@
                   top: 46%
                   left: 9%
                   borderWidth: 5%
-                  borderRadius: 10% 
-               children:
-             - Text:
-                style:
-                  position: absolute
-                  color: green
-                  top: 45%
-                  left: 15%
-                  fontSize: 34
-                index: {affirmative}
-             - View:
+                  borderRadius: 10%
+                on_touch:
+                  backgroundColor: green
+                children:
+                 - Text:
+                    style:
+                      position: absolute
+                      color: green
+                      top: -10%
+                      left: 16%
+                      fontSize: 34
+                    index: {affirmative}
+             - Button:
                 style:
                   width: 29%
                   height: 29%
@@ -45,11 +47,14 @@
                   left: 63.5%
                   borderWidth: 5%
                   borderRadius: 10% 
-             - Text:
-                style:
-                  position: absolute
-                  color: red
-                  top: 45%
-                  left: 70%
-                  fontSize: 34
-                index: {negative}
+                on_touch:
+                  backgroundColor: red
+                children:
+                  - Text:
+                     style:
+                       position: absolute
+                       color: red
+                       top: -10%
+                       left: 20%
+                       fontSize: 34
+                     index: {negative}

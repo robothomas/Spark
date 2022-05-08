@@ -1,0 +1,74 @@
+       - Text:
+          style:
+            position: relative
+            top: 52%
+            left: 17%
+            fontSize: 20
+          index: {recency}
+       - View:
+          style:
+            width: 35%
+            height: 8%
+            backgroundColor: white
+            position: absolute
+            top: 58%
+            left: 9%
+            borderWidth: 10%
+          children:
+             - Text:
+                style:
+                  position: relative
+                  left: 5%
+                  fontSize: 21
+                index: {recencyType}
+             - View:
+                style:
+                  position: absolute
+                  top: 30%
+                  left: 80%
+                  width: 0
+                  height: 0
+                  backgroundColor: transparent
+                  borderLeftWidth: 8
+                  borderRightWidth: 8
+                  borderTopWidth: 13
+                  borderLeftColor: transparent
+                  borderRightColor: transparent
+                  borderBottomColor: black
+       - Text:
+          style:
+            position: absolute
+            top: 52%
+            left: 63.5%
+            fontSize: 20
+          index: {difficulty}
+       - View:
+          style:
+            width: 40%
+            height: 8%
+            backgroundColor: white
+            position: absolute
+            top: 58%
+            left: 51%
+            borderWidth: 10%
+          children:
+             - Text:
+                style:
+                  position: relative
+                  left: 5%
+                  fontSize: 21
+                index: {difficultyType}
+             - View:
+                style:
+                  position: absolute
+                  top: 30%
+                  left: 80%
+                  width: 0
+                  height: 0
+                  backgroundColor: transparent
+                  borderLeftWidth: 8
+                  borderRightWidth: 8
+                  borderTopWidth: 13
+                  borderLeftColor: transparent
+                  borderRightColor: transparent
+                  borderBottomColor: black

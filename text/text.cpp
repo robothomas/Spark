@@ -127,6 +127,12 @@ bool Text::isDefault() {
     }
 }
 
+int Text::size_in_bytes() {
+    int size = (len + 2) + 3 * (len + 1); // (len + 1) is the tilde terminated text, and 3 * (len + 2) refers to the three bool arrays
+
+    return size;
+}
+
 // Sets text to completely default state, as well as making length 40 and fontSize 20
 void Text::setDefault() {
     len = 40;
@@ -254,7 +260,7 @@ void Text::setUnderline(bool isUnderlined, int start, int end) {
     setBoolSecton(underlined, isUnderlined, start, end);
 }
 
-char *Text::read_from(char *mem) {
+void Text::read_from(const char *mem) {
     int memPos = 0; // keeps track of spot in mem
 
     fontSize = _get_int(mem, 2);
@@ -268,6 +274,7 @@ char *Text::read_from(char *mem) {
 
         if (mem[memPos + i + 1] == '\n') {
             memPos += i + 2;
+            break;
         }
     }
 
@@ -276,6 +283,7 @@ char *Text::read_from(char *mem) {
 
         if (mem[memPos + i + 1] == '\n') {
             memPos += i + 2;
+            break;
         }
     }
 
@@ -284,10 +292,9 @@ char *Text::read_from(char *mem) {
         
         if (mem[memPos + i + 1] == '\n') {
             memPos += i + 2;
+            break;
         }
     }
-
-    return mem + memPos;
 }
 
 char *Text::write_to(char *mem) {

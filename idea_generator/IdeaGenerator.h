@@ -2,6 +2,7 @@
 #define __IDEAGENERATOR_H__
 
 #include <string>
+using namespace std;
 
 class IdeaGenerator {
     private:
