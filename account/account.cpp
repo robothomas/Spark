@@ -84,7 +84,7 @@ void Account::remove_your_post(int id){
 //get ids
 int Account::get_your_posts_id(){
     for(int i = 0; i < ypl; i++){
-        if(your_posts[i].get_id() == 0){///////////////////////////
+        if(your_posts[i].get_id() == 0){
             return i;
         }
     }
