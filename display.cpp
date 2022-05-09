@@ -38,8 +38,8 @@ void display(State &state) {
     
     switch(state.panelType) {
         case 0: // Idea Generator
-            _add_yaml("searchBar.yaml", {{"top", "50%"}, {"query", 226}});
-            _add_yaml("ideaGenTemplate.yaml", {{"recency", 5/*_get_label_index("recency", state.label_offset())*/}, {"recencyType", 7}, {"difficulty", 6/*_get_label_index("difficulty", state.label_offset())*/}, {"difficultyType", 25}});
+            //_add_yaml("searchBar.yaml", {{"top", "50%"}, {"query", 226}});
+            //_add_yaml("ideaGenTemplate.yaml", {{"recency", 5/*_get_label_index("recency", state.label_offset())*/}, {"recencyType", 7}, {"difficulty", 6/*_get_label_index("difficulty", state.label_offset())*/}, {"difficultyType", 25}});
             break;
 
         case 1: 
