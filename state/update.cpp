@@ -1,7 +1,7 @@
 #include "State.h"
 
 void State::update(){
-    _read_event_info_file(event_info);
+    _read_event_info_file("event_info");
     if(_received_event()) {
         for (int i = 0; i < 4; ++i) {
             if(_event_id_is("menu_", i)) {
