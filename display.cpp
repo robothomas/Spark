@@ -42,7 +42,10 @@ void display(State &state) {
             _add_yaml("ideaGenTemplate.yaml", {{"recency", 5/*_get_label_index("recency", state.label_offset())*/}, {"recencyType", 7}, {"difficulty", 6/*_get_label_index("difficulty", state.label_offset())*/}, {"difficultyType", 25}});
             break;
 
-        case 1: // New Post
+        case 1: 
+            break;
+
+        case 2:// New Post
             _add_yaml("searchBar.yaml", {{"top", "5%"}, {"query", 226}});
             _add_yaml("new_post/postCommunity.yaml", {{"width", "33%"}, {"left", "10%"}, {"name", 226}});
             _add_yaml("new_post/postCommunity.yaml", {{"width", "36%"}, {"left", "45%"}, {"name", 244}});
@@ -51,17 +54,11 @@ void display(State &state) {
             addRatingArray(3);
             break;
 
-        case 2: // Community
-            //_add_yaml("postTemplate.yaml", {{"title", 7}, {"description", 25}});
-            break;
-
-        case 3: // Post
-            //_add_yaml("postTemplate.yaml", {{"title", 9}, {"description", 27}});
+        case 3: // Account
             _add_yaml("accountTemplate.yaml", {{"user", 76}, {"email", 82}});
             break;
 
-        case 4: // Account
-            _add_yaml("accountTemplate.yaml", {{"user", 76}, {"email", 82}});
+        case 4: 
 
             break;
 

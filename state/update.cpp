@@ -10,13 +10,13 @@ void State::update(){
 
         switch (panelType) {
             case 1:
+                break;
+            case 2://New Post
                 updateNewPost();
                 break;
-            case 2:
+            case 3://Account
                 break;
-            case 3:
-                break;
-            case 4://Account
+            case 4:
                 break;
             case 5:
                 break;
