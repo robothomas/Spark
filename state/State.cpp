@@ -3,7 +3,7 @@
 
 void State::read_from(char *mem) {
     panelType = _get_int(mem, 2);
-    mem += 3;
+    mem += 1;
 
     //ideaGen.read_from(mem);
     //mem += ideaGen.size_in_bytes();
@@ -22,8 +22,8 @@ void State::write_to(char *mem) {
     _put_int(panelType, mem, 2);
     mem += 2;
 
-    _put_char('\n', mem, 1);
-    mem++;
+    _print_newline();
+    mem += 2;
 
     //ideaGen.write_to(mem);
     newPost.write_to(mem);
