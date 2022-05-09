@@ -61,6 +61,7 @@ void display(State &state) {
 
         case 4: // Account
             _add_yaml("accountTemplate.yaml", {{"user", 76}, {"email", 82}});
+
             break;
 
         case 5: // Search Results
