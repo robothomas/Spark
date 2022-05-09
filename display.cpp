@@ -24,9 +24,9 @@ void addRatingArray(int rating) {
 
     for (int i = 0; i < 5; i++) {
         if (i < rating) {
-            addRatingBulb(true, left);
+            addRatingBulb(i, true, left);
         } else {
-            addRatingBulb(false, left);
+            addRatingBulb(i, false, left);
         }
 
         left += 19.5;
