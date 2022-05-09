@@ -112,22 +112,26 @@ void Post::read_from(const char* mem){
 
 
 void Post::write_to(char *mem) {
+    mem += 1;
     _put_int(id, mem, 2);
     mem += 2;
 
-    _put_char('\n', mem, 1);
-    mem++;
+    //_put_char('\n', mem, 2);
+    _print_newline();
+    mem += 2;
 
     for (int i = 0; communityIDs[i]; i++) {
-        _put_int(communityIDs[i], mem, 2);
-        mem += 2;
+        _put_int(communityIDs[i], mem, 1);
+        _print_newline();
+        mem += 3;
     }
 
     _put_tilde_terminated_string(title, mem);
     mem += title.length() + 1;
 
-    _put_char('\n', mem, 1);
-    mem++;
+    //_put_char('\n', mem, 2);
+    _print_newline();
+    mem += 2;
 
     description.write_to(mem);
 }

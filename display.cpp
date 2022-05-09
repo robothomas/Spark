@@ -24,9 +24,9 @@ void addRatingArray(int rating) {
 
     for (int i = 0; i < 5; i++) {
         if (i < rating) {
-            addRatingBulb(true, left);
+            addRatingBulb(i, true, left);
         } else {
-            addRatingBulb(false, left);
+            addRatingBulb(i, false, left);
         }
 
         left += 19.5;
@@ -39,7 +39,7 @@ void display(State &state) {
     switch(state.panelType) {
         case 0: // Idea Generator
             _add_yaml("searchBar.yaml", {{"top", "50%"}, {"query", 226}});
-            _add_yaml("ideaGenTemplate.yaml", {{"recency", _get_label_index("recency", state.label_offset())}, {"recencyType", 7}, {"difficulty", _get_label_index("difficulty", state.label_offset())}, {"difficultyType", 25}});
+            _add_yaml("ideaGenTemplate.yaml", {{"recency", 5/*_get_label_index("recency", state.label_offset())*/}, {"recencyType", 7}, {"difficulty", 6/*_get_label_index("difficulty", state.label_offset())*/}, {"difficultyType", 25}});
             break;
 
         case 1: // New Post
@@ -56,7 +56,8 @@ void display(State &state) {
             break;
 
         case 3: // Post
-            _add_yaml("postTemplate.yaml", {{"title", 9}, {"description", 27}});
+            //_add_yaml("postTemplate.yaml", {{"title", 9}, {"description", 27}});
+            _add_yaml("accountTemplate.yaml", {{"user", 76}, {"email", 82}});
             break;
 
         case 4: // Account

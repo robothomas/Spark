@@ -9,6 +9,9 @@ State state;
 
 void test_display() {
   //cerr << "in test display" << endl;
+  //display(state);
+  state.update();
+  state.write_to(_global_mem);
   display(state);
   //cerr << "used display" << endl;
   assert(_global_yaml.size() > 50 /*2000*/);
@@ -18,12 +21,12 @@ void test_display() {
 
 int main() {
     //cerr << "in main" << endl;
-    _read_global_mem_from_file("state1.txt");
+    _read_global_mem_from_file("begin_mem");
     //cerr << "read global_mem" << endl;
     state.read_from(_global_mem);
     //cerr << "used read_from" << endl;
-    ifstream f_label("labels.txt");
-    f_label.read(_global_mem + state.label_offset, 4000);
+    //ifstream f_label("labels.txt");
+    //f_label.read(_global_mem + state.label_offset, 4000);
     test_display();
     _write_global_yaml_to_file("react.yaml");
     //cerr << "wrote yaml to react" << endl;

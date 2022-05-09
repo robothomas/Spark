@@ -22,15 +22,16 @@ void State::update(){
                 break;
         } 
     }
+    
 }
 
-void updateNewPost() {
+void State::updateNewPost() {
     if (_event_id_is("+")) {
-        _add_yaml("../confirmPopUp.yaml", {{"confirmation", index}, {"affirmative", yesSpot}, {"negative", noSpot}})
+       // _add_yaml("../confirmPopUp.yaml", {{"confirmation", index}, {"affirmative", yesSpot}, {"negative", noSpot}})
     }
 
     if (_event_id_is("Yes")) {
-        panelType = 3;
+        // panelType = 3;
         // put data into Post here, likely through database
     }
 

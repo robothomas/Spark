@@ -83,12 +83,14 @@ Community* Database::get_community(int id){
 void Database::write_to(char *mem) {
     for (int i = 0; i < pLen; i++) {
         pStorage[i].write_to(mem);
-        _put_char('\n', mem, 1);
+        _print_newline();
+        mem += 2;
     }
 
     for (int i = 0; i < cLen; i++) {
         cStorage[i].write_to(mem);
-        _put_char('\n', mem, 1);
+        _print_newline();
+        mem += 2;
     }
 }
 

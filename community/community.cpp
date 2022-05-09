@@ -112,11 +112,11 @@ void Community::read_from(char *mem){
 void Community::write_to(char *mem){
     _put_int(id, mem, 2);
     mem += 2;
-    _put_char('\n', mem, 1);
+    _print_newline();
     mem++;
     _put_tilde_terminated_string(title, mem);
     mem += title.length() + 1;
-    _put_char('\n', mem, 1);
+    _print_newline();
     mem++;
     description->write_to(mem);
 }

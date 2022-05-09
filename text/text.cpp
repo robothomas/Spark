@@ -304,32 +304,32 @@ char *Text::write_to(char *mem) {
     _put_tilde_terminated_string(text, mem);
     mem += len + 1;
 
-    _put_char('\n', mem, 1);
-    mem++;
+    _print_newline();
+    mem += 2;
 
     for (int i = 0; i < len; i++) {
         _put_bool(bold[i], mem, 2);
         mem += 2;
     }
 
-    _put_char('\n', mem, 1);
-    mem++;
+    _print_newline();
+    mem += 2;
 
     for (int i = 0; i < len; i++) {
         _put_bool(italicized[i], mem, 2);
         mem += 2;
     }
 
-    _put_char('\n', mem, 1);
-    mem++;
+    _print_newline();
+    mem += 2;
 
     for (int i = 0; i < len; i++) {
         _put_bool(underlined[i], mem, 2);
         mem += 2;
     }
 
-    _put_char('\n', mem, 1);
-    mem++;
+    _print_newline();
+    mem += 2;
 
     return mem;
 }
