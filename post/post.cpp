@@ -63,7 +63,7 @@ Post::Post(int id_num, int communityIDs[], string postTitle, Text postDescriptio
 int Post::size_in_bytes() {
     int size = 3; // id + newline
 
-    for (int i = 0; i < numCommunities; i++) {
+    for (int i = 0; i < communityNum; i++) {
         size += 2; //
     }
 
@@ -99,17 +99,17 @@ void Post::read_from(const char* mem){
 
     memPos++; // for newline
     
-    numCommunities = 0;
+    communityNum = 0;
     for (int i = 0; mem[i + memPos] != '~'; i++) {
         if (mem[i + memPos] != ' ') {
-            numCommunities++;
+            communityNum++;
         }
     }
 
     delete [] communityIDs; 
-    communityIDs = new int[numCommunities];
+    communityIDs = new int[communityNum];
 
-    for(int i = 0; i < numCommunities; i++){
+    for(int i = 0; i < communityNum; i++){
         communityIDs[i] = _get_int(mem + memPos, 2);
         memPos += 2;
     }
@@ -130,7 +130,7 @@ void Post::write_to(char *mem) {
     *mem = '\n';
     mem++;
 
-    for (int i = 0; i < numCommunities; i++) {
+    for (int i = 0; i < communityNum; i++) {
         _put_int(communityIDs[i], mem, 1);
         mem++;
 

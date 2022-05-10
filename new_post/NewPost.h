@@ -16,6 +16,7 @@ class NewPost : public Post {
 
     public:
         NewPost();
+        ~NewPost();
         bool checkTitle();
         bool checkDescription();
         bool checkCommunities();
