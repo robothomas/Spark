@@ -8,6 +8,9 @@ using namespace std;
 
 class NewPost : public Post {
     private:
+        int communityNum;
+        string query;
+        string *communities;
         bool titleAdded;
         bool descriptionAdded;
         bool communityAdded;
@@ -20,6 +23,9 @@ class NewPost : public Post {
         bool checkValidID();
         bool checkFormError();
         string showFormError();
+        int size_in_bytes();
+        void read_from(const char *mem);
+        void write_to(char *mem);
 };
 
 #endif

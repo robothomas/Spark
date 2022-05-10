@@ -1,4 +1,5 @@
 #include "NewPost.h"
+#include "/usr/local/cs/cs251/react.h"
 
 NewPost::NewPost() : Post() {
     titleAdded = false;
@@ -107,4 +108,57 @@ string NewPost::showFormError() {
 
     return errorMsg;
 
+}
+
+int NewPost::size_in_bytes() {
+    int size = Post::size_in_bytes();
+    size += query.size();
+
+    for (int i = 0; i < communityNum; i++) {
+        size += communities[i].size();
+    }
+
+    size++; // for extra newline
+
+    return size;
+}
+
+void NewPost::read_from(const char *mem) {
+    Post::read_from(mem);
+    int memPos = Post::size_in_bytes();
+    query = _get_tilde_terminated_string(mem + memPos);
+    memPos = query.size() + 2;
+
+    communityNum = 0;
+
+    for (int i = 0; mem[i + memPos] != '\n'; i++) {
+        if (mem[i + memPos] == '~') {
+            communityNum++;
+        }
+    }
+
+    communities = new string[communityNum];
+
+    for (int i = 0; i < communityNum; i++) {
+        communities[i] = _get_tilde_terminated_string(mem + memPos);
+        memPos += query.size() + 1;
+    }
+
+}
+
+void NewPost::write_to(char *mem) {
+    Post::write_to(mem);
+    mem += Post::size_in_bytes();
+    _put_tilde_terminated_string(query, mem);
+    mem += query.size() + 1;
+    
+    *mem = '\n';
+    mem++;
+
+    for (int i = 0; i < communityNum; i++) {
+        _put_tilde_terminated_string(communities[i], mem);
+        mem += query.size() + 1;
+    }
+
+    *mem = '\n';
 }
