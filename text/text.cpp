@@ -80,6 +80,13 @@ Text Text::operator=(const Text &otherText) {
     return Text(otherText);
 }
 
+Text::~Text() {
+    delete [] text;
+    delete [] bold;
+    delete [] italicized;
+    delete [] underlined;
+}
+
 const char *Text::getText() {
     return text;
 }

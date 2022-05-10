@@ -8,7 +8,6 @@ using namespace std;
 
 class NewPost : public Post {
     private:
-        int communityNum;
         string query;
         string *communities;
         bool titleAdded;

@@ -9,23 +9,30 @@ using namespace std;
 Post::Post() {
     id = 0;
     title = "";
-    communityIDs = new int[1];
+    communityNum = 1;
+    communityIDs = new int[communityNum];
     communityIDs[0] = 0;
 }
 
 Post::Post(int id_num, int communityID, string postTitle) {
     id = id_num;
     title = postTitle;
-    communityIDs = new int[1];
+    communityNum = 1;
+    communityIDs = new int[communityNum];
     communityIDs[0] = communityID;
 }
 
 Post::Post(int id_num, int communityID, string postTitle, Text postDescription) {
     id = id_num;
     title = postTitle;
-    communityIDs = new int[1];
+    communityNum = 1;
+    communityIDs = new int[communityNum];
     communityIDs[0] = communityID;
     description = postDescription;
+}
+
+Post::~Post() {
+    delete [] communityIDs;
 }
 
 /* May not really need either of these since the automatic constructors should do the same thing 
@@ -56,8 +63,8 @@ Post::Post(int id_num, int communityIDs[], string postTitle, Text postDescriptio
 int Post::size_in_bytes() {
     int size = 3; // id + newline
 
-    for (int i = 0; communityIDs[i]; i++) {
-        size += 2;
+    for (int i = 0; i < numCommunities; i++) {
+        size += 2; //
     }
 
     size++; // for newline
@@ -86,18 +93,23 @@ void Post::assignID(int id_num) {
 
 void Post::read_from(const char* mem){
     int memPos = 0;
+
     id = _get_int(mem, 2);
     memPos += 2;
+
+    memPos++; // for newline
     
-    int j = 0;
-    for (int i = 0; mem[i] != '~'; i++) {
-        if (mem[i] != ' ') {
-            j++;
+    numCommunities = 0;
+    for (int i = 0; mem[i + memPos] != '~'; i++) {
+        if (mem[i + memPos] != ' ') {
+            numCommunities++;
         }
     }
 
-    communityIDs = new int[j];
-    for(int i = 0; i < j; i++){
+    delete [] communityIDs; 
+    communityIDs = new int[numCommunities];
+
+    for(int i = 0; i < numCommunities; i++){
         communityIDs[i] = _get_int(mem + memPos, 2);
         memPos += 2;
     }
@@ -118,18 +130,22 @@ void Post::write_to(char *mem) {
     *mem = '\n';
     mem++;
 
-    for (int i = 0; communityIDs[i]; i++) {
+    for (int i = 0; i < numCommunities; i++) {
         _put_int(communityIDs[i], mem, 1);
-        _print_newline();
-        mem += 3;
+        mem++;
+
+        *mem = ' ';
+        mem++;
     }
+
+    *mem = '~';
+    mem++;
 
     _put_tilde_terminated_string(title, mem);
     mem += title.length() + 1;
 
-    //_put_char('\n', mem, 2);
-    _print_newline();
-    mem += 2;
+    *mem = '\n';
+    mem++;
 
     description.write_to(mem);
 }
