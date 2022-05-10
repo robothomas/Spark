@@ -47,7 +47,7 @@ void Database::expand_pStorage(){
     for(int i = 0; i < pLen; i++){
         tmp[i] = pStorage[i];
     }
-    delete pStorage;
+    delete [] pStorage;
     pStorage = tmp;
 }
 void Database::expand_cStorage(){
@@ -56,7 +56,7 @@ void Database::expand_cStorage(){
     for(int i = 0; i < cLen; i++){
         tmp[i] = cStorage[i];
     }
-    delete cStorage;
+    delete [] cStorage;
     cStorage = tmp;
 }
 

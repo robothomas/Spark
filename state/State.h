@@ -3,7 +3,7 @@
 
 #include<string>
 #include"/usr/local/cs/cs251/react.h"
-//#include "../idea_generator/IdeaGenerator.h"
+#include "../idea_generator/IdeaGenerator.h"
 #include "../new_post/NewPost.h"
 #include "../post/post.h"
 //#include "../community/community.h"
@@ -15,7 +15,7 @@ using namespace std;
 class State {
   int label_offset;
 
-  //IdeaGenerator ideaGen;
+  IdeaGenerator ideaGen;
   NewPost newPost;
   //Community community;
   Post post;
