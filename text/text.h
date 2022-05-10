@@ -52,7 +52,7 @@ class Text {
 
         int size_in_bytes();
         void read_from(const char *mem);
-        char *write_to(char *mem);
+        void write_to(char *mem);
 };
 
 #endif
