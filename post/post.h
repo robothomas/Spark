@@ -8,7 +8,7 @@
 class Post {
     protected:
         int id;
-        int numCommunities;
+        int communityNum;
         int *communityIDs;
         string title;
         Text description;
@@ -18,6 +18,7 @@ class Post {
         Post(int id_num, int communityID, string postTitle, Text postDescription);
         Post(int id_num, int *communityIDNums, string postTitle);
         Post(int id_num, int *communityIDNums, string postTitle, Text postDescription);
+        ~Post();
         //Post(const Post &p);
         int get_id();
         int size_in_bytes();
