@@ -143,9 +143,9 @@ void Account::expand_saved_communities(){
 //Read/write
 void Account::read_from(char* mem){
     user = _get_tilde_terminated_string(mem);
-    mem += user.size();
+    mem += user.size() + 1;
     password = _get_tilde_terminated_string(mem);
-    mem += password.size();
+    mem += password.size() + 1;
     email = _get_tilde_terminated_string(mem);
 }
 void Account::write_to(char* mem){

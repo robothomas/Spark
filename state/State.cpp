@@ -5,32 +5,16 @@ void State::read_from(char *mem) {
     panelType = _get_int(mem, 1);
     mem += 2; // + 1 extra for newline
 
-    switch (panelType) {
-        case 0://Idea Generator
-            ideaGen.read_from(mem);
-            break;
-        case 1:
-            break;
-        case 2://New Post
-            newPost.read_from(mem);
-            break;
-        case 3://Account
-            account.read_from(mem);
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        } 
-    //ideaGen.read_from(mem);
-    //mem += ideaGen.size_in_bytes();
-    //newPost.read_from(mem);
-    //mem += newPost.size_in_bytes();
-    //account.read_from(mem);
-    //mem += account.size_in_bytes();
-    //community.read_from(mem);
-    //mem = post.read_from(mem);
+    ideaGen.read_from(mem);
+    mem += ideaGen.size_in_bytes();
 
+    newPost.read_from(mem);
+    mem += newPost.size_in_bytes();
+
+    account.read_from(mem);
+    //mem += account.size_in_bytes(); // not implemented yet
+
+    //community.read_from(mem);
     
     //results.read_from(f);
 }
