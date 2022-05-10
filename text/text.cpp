@@ -311,24 +311,24 @@ void Text::write_to(char *mem) {
     mem++;
 
     for (int i = 0; i < len; i++) {
-        _put_bool(bold[i], mem, 2);
-        mem += 2;
+        _put_bool(bold[i], mem, 1);
+        mem++;
     }
 
     *mem = '\n';
     mem++;
 
     for (int i = 0; i < len; i++) {
-        _put_bool(italicized[i], mem, 2);
-        mem += 2;
+        _put_bool(italicized[i], mem, 1);
+        mem++;
     }
 
     *mem = '\n';
     mem++;
 
     for (int i = 0; i < len; i++) {
-        _put_bool(underlined[i], mem, 2);
-        mem += 2;
+        _put_bool(underlined[i], mem, 1);
+        mem++;
     }
 
     *mem = '\n';
