@@ -31,6 +31,7 @@ class Text {
         Text(const Text &otherText);
         Text(string words);
         Text(string words, int sizeFont);
+        ~Text();
         Text operator=(const Text &otherText);
         const char *getText();
         const bool *getBold();

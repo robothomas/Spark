@@ -2,8 +2,9 @@
 #include "State.h"
 
 void State::read_from(char *mem) {
-    panelType = _get_int(mem, 2);
-    mem += 1;
+    panelType = _get_int(mem, 1);
+    mem += 2; // + 1 extra for newline
+
     switch (panelType) {
         case 0://Idea Generator
             ideaGen.read_from(mem);
@@ -36,7 +37,7 @@ void State::read_from(char *mem) {
 
 void State::write_to(char *mem) {
     _put_int(panelType, mem, 1);
-    mem += 1;
+    mem++;
 
     *mem = '\n';
     mem++;

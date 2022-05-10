@@ -5,6 +5,12 @@ NewPost::NewPost() : Post() {
     titleAdded = false;
     descriptionAdded = false;
     communityAdded = false;
+    communities = new string[communityNum];
+    communities[0] = "Template";
+}
+
+NewPost::~NewPost() {
+    delete [] communities;
 }
 
 bool NewPost::checkTitle() {
@@ -129,14 +135,7 @@ void NewPost::read_from(const char *mem) {
     query = _get_tilde_terminated_string(mem + memPos);
     memPos = query.size() + 2;
 
-    communityNum = 0;
-
-    for (int i = 0; mem[i + memPos] != '\n'; i++) {
-        if (mem[i + memPos] == '~') {
-            communityNum++;
-        }
-    }
-
+    delete [] communities;
     communities = new string[communityNum];
 
     for (int i = 0; i < communityNum; i++) {

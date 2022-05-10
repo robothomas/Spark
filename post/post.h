@@ -8,6 +8,7 @@
 class Post {
     protected:
         int id;
+        int numCommunities;
         int *communityIDs;
         string title;
         Text description;
