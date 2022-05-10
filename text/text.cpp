@@ -264,10 +264,10 @@ void Text::read_from(const char *mem) {
     int memPos = 0; // keeps track of spot in mem
 
     fontSize = _get_int(mem, 2);
-    memPos += 2;
+    memPos += 3;
 
     setText(_get_tilde_terminated_string(mem + memPos));
-    memPos += len + 1; // + 1 used for tilde (or newline, later)
+    memPos += len + 2; // + 2 used for tilde and newline
     
     for (int i = 0; mem[memPos + i] != '\n'; i++) {
         bold[i] = mem[memPos + i];
@@ -297,39 +297,42 @@ void Text::read_from(const char *mem) {
     }
 }
 
-char *Text::write_to(char *mem) {
+void Text::write_to(char *mem) {
     _put_int(fontSize, mem, 2);
     mem += 2;
+
+    *mem = '\n';
+    mem++;
 
     _put_tilde_terminated_string(text, mem);
     mem += len + 1;
 
-    _print_newline();
-    mem += 2;
+    *mem = '\n';
+    mem++;
 
     for (int i = 0; i < len; i++) {
         _put_bool(bold[i], mem, 2);
         mem += 2;
     }
 
-    _print_newline();
-    mem += 2;
+    *mem = '\n';
+    mem++;
 
     for (int i = 0; i < len; i++) {
         _put_bool(italicized[i], mem, 2);
         mem += 2;
     }
 
-    _print_newline();
-    mem += 2;
+    *mem = '\n';
+    mem++;
 
     for (int i = 0; i < len; i++) {
         _put_bool(underlined[i], mem, 2);
         mem += 2;
     }
 
-    _print_newline();
-    mem += 2;
+    *mem = '\n';
+    mem++;
 
     return mem;
 }

@@ -19,11 +19,11 @@ void State::read_from(char *mem) {
 }
 
 void State::write_to(char *mem) {
-    _put_int(panelType, mem, 2);
-    mem += 2;
+    _put_int(panelType, mem, 1);
+    mem += 1;
 
-    _print_newline();
-    mem += 2;
+    *mem = '\n';
+    mem++;
 
     //ideaGen.write_to(mem);
     newPost.write_to(mem);
