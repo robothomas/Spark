@@ -10,6 +10,8 @@ void State::update(){
         }
 
         switch (panelType) {
+            case 0://Idea Generator
+                break;
             case 1:
                 break;
             case 2://New Post
