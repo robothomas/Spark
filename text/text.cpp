@@ -333,7 +333,5 @@ void Text::write_to(char *mem) {
 
     *mem = '\n';
     mem++;
-
-    return mem;
 }
 
