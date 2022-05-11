@@ -34,7 +34,7 @@ class Post {
         string get_title();
         Text get_description();
         void assignID(int id_num);
-        void read_from(const char* mem);
+        void read_from(char* mem);
         void write_to(char* mem);
 };
 
