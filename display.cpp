@@ -61,7 +61,7 @@ void display(State &state) {
             break;
 
         case 3: // Account
-            _add_yaml("accountTemplate.yaml", {{"user", state.get_account_offset() + state.account.get_user_offset()}, {"email", state.account_offset() + state.get_account_offset() + state.account.get_email_offset()}});
+            _add_yaml("accountTemplate.yaml", {{"user", state.get_account_offset() + state.account.get_user_offset()}, {"email", state.get_account_offset() + state.account.get_email_offset()}});
             break;
 
         case 4: 
