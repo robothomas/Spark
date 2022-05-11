@@ -139,13 +139,28 @@ void Account::expand_saved_communities(){
     saved_communities = tmp;
 }
 
+int Account::get_user_offset() {
+    return user_offset;
+}
+
+int Account::get_email_offset() {
+    return email_offset;
+}
+
+int Account::get_password_offset() {
+    return password_offset;
+}
+
 
 //Read/write
 void Account::read_from(char* mem){
+    user_offset = 0;
     user = _get_tilde_terminated_string(mem);
     mem += user.size() + 1;
+    password_offset = user.size() + 1;
     password = _get_tilde_terminated_string(mem);
     mem += password.size() + 1;
+    email_offset = password_offset + password.size() + 1;
     email = _get_tilde_terminated_string(mem);
 }
 void Account::write_to(char* mem){

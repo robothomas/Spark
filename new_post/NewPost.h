@@ -8,6 +8,8 @@ using namespace std;
 
 class NewPost : public Post {
     private:
+        int query_offset;
+        int communityStringOffset;
         string query;
         string *communities;
         bool titleAdded;
@@ -17,6 +19,8 @@ class NewPost : public Post {
     public:
         NewPost();
         ~NewPost();
+        int getQueryOffset() const;
+        int getCommunityStringOffset(int communityIndex) const;
         bool checkTitle();
         bool checkDescription();
         bool checkCommunities();

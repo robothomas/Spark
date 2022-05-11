@@ -38,8 +38,9 @@ void display(State &state) {
     
     switch(state.panelType) {
         case 0: // Idea Generator
-            _add_yaml("searchBar.yaml", {{"top", "50%"}, {"query", 226}});
-            _add_yaml("ideaGenTemplate.yaml", {{"recency", 5/*_get_label_index("recency", state.label_offset())*/}, {"recencyType", 7}, {"difficulty", 6/*_get_label_index("difficulty", state.label_offset())*/}, {"difficultyType", 25}});
+            _add_yaml("searchBar.yaml", {{"top", "50%"}, {"query", state.get_ideaGen_offset() + state.ideaGen.getQueryOffset()}});
+            _add_yaml("ideaGenTemplate.yaml", {{"recency", 5/*_get_label_index("recency", state.label_offset())*/}, {"recencyType", state.get_ideaGen_offset() + state.ideaGen.getRecencyOffset()}, 
+                {"difficulty", 6/*_get_label_index("difficulty", state.label_offset())*/}, {"difficultyType", state.get_ideaGen_offset() + state.ideaGen.getDifficultyOffset()}});
             break;
 
         case 1: //Community search
@@ -51,16 +52,16 @@ void display(State &state) {
             break;
 
         case 2:// New Post
-            _add_yaml("searchBar.yaml", {{"top", "5%"}, {"query", 226}});
+            _add_yaml("searchBar.yaml", {{"top", "5%"}, {"query", state.get_newPost_offset() + state.newPost.getQueryOffset()}});
             _add_yaml("new_post/postCommunity.yaml", {{"width", "33%"}, {"left", "10%"}, {"name", 226}});
             _add_yaml("new_post/postCommunity.yaml", {{"width", "36%"}, {"left", "45%"}, {"name", 244}});
-            _add_yaml("textBox.yaml", {{"top", "25%"}, {"height", "8%"}, {"fontSize", 18}, {"text_index", 9}});
-            _add_yaml("textBox.yaml", {{"top", "35%"}, {"height", "33%"}, {"fontSize", 15}, {"text_index", 27}});
+            _add_yaml("textBox.yaml", {{"top", "25%"}, {"height", "8%"}, {"fontSize", 18}, {"text_index", state.get_newPost_offset() + state.newPost.getTitleOffset()}});
+            _add_yaml("textBox.yaml", {{"top", "35%"}, {"height", "33%"}, {"fontSize", 15}, {"text_index", state.get_newPost_offset() + state.newPost.getDescriptionOffset()}});
             addRatingArray(3);
             break;
 
         case 3: // Account
-            _add_yaml("accountTemplate.yaml", {{"user", 76}, {"email", 82}});
+            _add_yaml("accountTemplate.yaml", {{"user", state.get_account_offset() + state.account.get_user_offset()}, {"email", state.account_offset() + state.get_account_offset() + state.account.get_email_offset()}});
             break;
 
         case 4: 

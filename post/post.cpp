@@ -60,11 +60,27 @@ Post::Post(int id_num, int communityIDs[], string postTitle, Text postDescriptio
 }
 */
 
+int Post::getIDOffset() {
+    return id_offset;
+}
+
+int Post::getCommunityIDsOffset() {
+    return community_id_offset;
+}
+
+int Post::getTitleOffset() {
+    return title_offset;
+}
+
+int Post::getDescriptionOffset() {
+    return description_offset;
+}
+
 int Post::size_in_bytes() {
     int size = 3; // id + newline
 
     for (int i = 0; i < communityNum; i++) {
-        size += 2; //
+        size += 2;
     }
 
     size++; // for newline
@@ -94,6 +110,7 @@ void Post::assignID(int id_num) {
 void Post::read_from(const char* mem){
     int memPos = 0;
 
+    id_offset = memPos;
     id = _get_int(mem, 2);
     memPos += 2;
 
@@ -109,6 +126,8 @@ void Post::read_from(const char* mem){
     delete [] communityIDs; 
     communityIDs = new int[communityNum];
 
+    community_id_offset = memPos;
+
     for(int i = 0; i < communityNum; i++){
         communityIDs[i] = _get_int(mem + memPos, 2);
         memPos += 2;
@@ -116,9 +135,12 @@ void Post::read_from(const char* mem){
 
     memPos++; // counts extra new line
 
+    title_offset = memPos;
+
     title = _get_tilde_terminated_string(mem + memPos);
     memPos += title.size() + 1;
 
+    description_offset = memPos;
     description.read_from(mem);
 }
 

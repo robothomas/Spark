@@ -13,6 +13,20 @@ NewPost::~NewPost() {
     delete [] communities;
 }
 
+int getQueryOffset() const {
+    return query_offset;
+}
+
+int getCommunityStringOffset(int communityIndex) const {
+    int offset = communityStringOffset;
+
+    for (int i = 0; i < communityIndex; i++) {
+        offset += communities[i].size();
+    }
+
+    return offset;
+}
+
 bool NewPost::checkTitle() {
     if (title == "") {
         titleAdded = false;
@@ -132,8 +146,12 @@ int NewPost::size_in_bytes() {
 void NewPost::read_from(const char *mem) {
     //Post::read_from(mem);
     int memPos = Post::size_in_bytes();
+
+    query_offset = memPos;
     query = _get_tilde_terminated_string(mem + memPos);
     memPos = query.size() + 2;
+    
+    communityStringOffset = memPos;
 
     delete [] communities;
     communities = new string[communityNum];

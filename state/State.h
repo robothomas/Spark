@@ -13,18 +13,24 @@
 using namespace std;
 
 class State {
+  int idea_offset;
+  int newPost_offset;
+  int account_offset;
   int label_offset;
 
-  IdeaGenerator ideaGen;
-  NewPost newPost;
-  //Community community;
-  Post post;
-  Account account;
-  //SearchResults results;
-
   public:
+    IdeaGenerator ideaGen;
+    NewPost newPost;
+    //Community community;
+    Post post;
+    Account account;
+    //SearchResults results;
+
     int panelType = 0; // 0 is idea generator, 1 is new post, 2 is community, 3 is post, 4 is account, 5 is search results
     int get_label_offset();
+    int get_ideaGen_offset();
+    int get_newPost_offset();
+    int get_account_offset();
     void read_from(char *mem); //20 25114
     void write_to(char *mem);
     void update();

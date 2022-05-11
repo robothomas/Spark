@@ -6,6 +6,9 @@ using namespace std;
 
 class IdeaGenerator {
     private:
+        int recent_offset;
+        int difficulty_offset;
+        int query_offset;
         string recent;
         string difficulty;
 
@@ -17,6 +20,10 @@ class IdeaGenerator {
         IdeaGenerator();
         IdeaGenerator(const IdeaGenerator &idea);
         IdeaGenerator operator=(const IdeaGenerator &idea);
+
+        int getRecencyOffset();
+        int getDifficultyOffset();
+        int getQueryOffset();
 
         string getRecency();
         string getDifficulty();

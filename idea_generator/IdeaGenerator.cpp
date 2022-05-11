@@ -85,13 +85,15 @@ void IdeaGenerator::setRecency(string recency) {
 void IdeaGenerator::read_from(const char *mem) {
     int memPos = 0;
 
+    recent_offset = 0;
     recent = _get_tilde_terminated_string(mem);
     memPos += countBeyondTilde(mem);
     
-
+    difficulty_offset = memPos;
     difficulty = _get_tilde_terminated_string(mem);
     memPos += countBeyondTilde(mem);
 
+    query_offset = memPos;
     searchQuery = _get_tilde_terminated_string(mem);
 }
 
@@ -103,4 +105,16 @@ void IdeaGenerator::write_to(char *mem) {
     mem += countBeyondTilde(mem);
 
     _put_tilde_terminated_string(searchQuery, mem);
+}
+
+int IdeaGenerator::getRecencyOffset() {
+    return recent_offset;
+}
+
+int IdeaGenerator::getDifficultyOffset() {
+    return difficulty_offset;
+}
+
+int IdeaGenerator::getQueryOffset() {
+    return query_offset;
 }
