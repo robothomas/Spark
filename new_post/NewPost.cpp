@@ -164,7 +164,7 @@ void NewPost::read_from(const char *mem) {
 }
 
 void NewPost::write_to(char *mem) {
-    Post::write_to(mem);
+    //Post::write_to(mem);
     mem += Post::size_in_bytes();
     _put_tilde_terminated_string(query, mem);
     mem += query.size() + 1;
