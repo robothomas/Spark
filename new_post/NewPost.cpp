@@ -13,11 +13,11 @@ NewPost::~NewPost() {
     delete [] communities;
 }
 
-int getQueryOffset() const {
+int NewPost::getQueryOffset() const{
     return query_offset;
 }
 
-int getCommunityStringOffset(int communityIndex) const {
+int NewPost::getCommunityStringOffset(int communityIndex) const{
     int offset = communityStringOffset;
 
     for (int i = 0; i < communityIndex; i++) {
