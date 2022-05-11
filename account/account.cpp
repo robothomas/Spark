@@ -151,6 +151,12 @@ int Account::get_password_offset() {
     return password_offset;
 }
 
+int Account::size_in_bytes(){
+    int size = user.size();
+    size += email.size();
+    size += password.size();
+    return size;
+}
 
 //Read/write
 void Account::read_from(char* mem){

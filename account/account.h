@@ -45,6 +45,7 @@ class Account{
         void expand_saved_communities();
         void read_from(char* mem);
         void write_to(char* mem);
+        int size_in_bytes();
         void display();
 };
 
