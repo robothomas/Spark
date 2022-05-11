@@ -130,7 +130,7 @@ int NewPost::size_in_bytes() {
 }
 
 void NewPost::read_from(const char *mem) {
-    Post::read_from(mem);
+    //Post::read_from(mem);
     int memPos = Post::size_in_bytes();
     query = _get_tilde_terminated_string(mem + memPos);
     memPos = query.size() + 2;
@@ -152,7 +152,7 @@ void NewPost::write_to(char *mem) {
     mem += query.size() + 1;
     
     *mem = '\n';
-    mem++;
+    mem += 2;
 
     for (int i = 0; i < communityNum; i++) {
         _put_tilde_terminated_string(communities[i], mem);

@@ -6,7 +6,7 @@ void State::read_from(char *mem) {
     mem += 2; // + 1 extra for newline
 
     ideaGen.read_from(mem);
-    mem += ideaGen.size_in_bytes();
+    //mem += ideaGen.size_in_bytes(); // not implemented yet
 
     newPost.read_from(mem);
     mem += newPost.size_in_bytes();

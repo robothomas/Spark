@@ -42,7 +42,12 @@ void display(State &state) {
             _add_yaml("ideaGenTemplate.yaml", {{"recency", 5/*_get_label_index("recency", state.label_offset())*/}, {"recencyType", 7}, {"difficulty", 6/*_get_label_index("difficulty", state.label_offset())*/}, {"difficultyType", 25}});
             break;
 
-        case 1: 
+        case 1: //Community search
+            _add_yaml("searchBar.yaml", {{"top", "10%"}, {"query", 226}});
+            _add_yaml("previewCommunity.yaml", {{"top", "20%"},{"color","blue"},{"index",15}});
+            _add_yaml("previewCommunity.yaml", {{"top", "30%"},{"color","red"},{"index",15}});
+            _add_yaml("previewCommunity.yaml", {{"top", "40%"},{"color","yellow"},{"index",15}});
+            _add_yaml("previewCommunity.yaml", {{"top", "50%"},{"color","green"},{"index",15}});
             break;
 
         case 2:// New Post
