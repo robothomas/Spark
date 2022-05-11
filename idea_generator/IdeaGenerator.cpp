@@ -82,6 +82,13 @@ void IdeaGenerator::setRecency(string recency) {
     }
 }
 
+int IdeaGenerator::size_in_bytes() {
+    int size = recent.size() + 1;
+    size += difficulty.size() + 1;
+    size += searchQuery.size() + 1;
+    return size;
+}
+
 void IdeaGenerator::read_from(const char *mem) {
     int memPos = 0;
 

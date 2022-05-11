@@ -21,6 +21,7 @@ class IdeaGenerator {
         IdeaGenerator(const IdeaGenerator &idea);
         IdeaGenerator operator=(const IdeaGenerator &idea);
 
+        int size_in_bytes();
         int getRecencyOffset();
         int getDifficultyOffset();
         int getQueryOffset();
