@@ -28,7 +28,7 @@ class NewPost : public Post {
         bool checkFormError();
         string showFormError();
         int size_in_bytes();
-        void read_from(const char *mem);
+        void read_from(char *mem);
         void write_to(char *mem);
 };
 

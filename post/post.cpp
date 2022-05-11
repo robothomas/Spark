@@ -107,7 +107,7 @@ void Post::assignID(int id_num) {
     id = id_num;
 }
 
-void Post::read_from(const char* mem){
+void Post::read_from(char* mem){
     int memPos = 0;
 
     id_offset = memPos;
