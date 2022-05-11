@@ -18,14 +18,14 @@ class State {
   int account_offset;
   int label_offset;
 
-  IdeaGenerator ideaGen;
-  NewPost newPost;
-  //Community community;
-  Post post;
-  Account account;
-  //SearchResults results;
-
   public:
+    IdeaGenerator ideaGen;
+    NewPost newPost;
+    //Community community;
+    Post post;
+    Account account;
+    //SearchResults results;
+
     int panelType = 0; // 0 is idea generator, 1 is new post, 2 is community, 3 is post, 4 is account, 5 is search results
     int get_label_offset();
     int get_ideaGen_offset();

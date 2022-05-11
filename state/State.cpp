@@ -29,7 +29,7 @@ void State::read_from(char *mem) {
     account_offset = newPost_offset + newPost.size_in_bytes();
 
     account.read_from(mem);
-    
+
     //mem += account.size_in_bytes(); // not implemented yet
 
     //community.read_from(mem);

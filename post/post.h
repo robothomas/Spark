@@ -7,6 +7,10 @@
 
 class Post {
     protected:
+        int id_offset;
+        int community_id_offset;
+        int title_offset;
+        int description_offset;
         int id;
         int communityNum;
         int *communityIDs;
@@ -19,9 +23,14 @@ class Post {
         Post(int id_num, int *communityIDNums, string postTitle);
         Post(int id_num, int *communityIDNums, string postTitle, Text postDescription);
         ~Post();
-        //Post(const Post &p);
+        //Post(const Post &p)
+        int getIDOffset();
+        int getCommunityIDsOffset();
+        int getTitleOffset();
+        int getDescriptionOffset();
         int get_id();
         int size_in_bytes();
+        int getCommunityNum();
         string get_title();
         Text get_description();
         void assignID(int id_num);
