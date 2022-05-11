@@ -45,10 +45,10 @@ void display(State &state) {
 
         case 1: //Community search
             _add_yaml("searchBar.yaml", {{"top", "10%"}, {"query", 226}});
-            _add_yaml("previewCommunity.yaml", {{"top", "20%"},{"color","blue"},{"index",15}});
-            _add_yaml("previewCommunity.yaml", {{"top", "30%"},{"color","red"},{"index",15}});
-            _add_yaml("previewCommunity.yaml", {{"top", "40%"},{"color","yellow"},{"index",15}});
-            _add_yaml("previewCommunity.yaml", {{"top", "50%"},{"color","green"},{"index",15}});
+            _add_yaml("previewCommunity.yaml", {{"top", "10%"},{"color","blue"},{"index",15}});
+            _add_yaml("previewCommunity.yaml", {{"top", "10%"},{"color","red"},{"index",15}});
+            _add_yaml("previewCommunity.yaml", {{"top", "10%"},{"color","yellow"},{"index",15}});
+            _add_yaml("previewCommunity.yaml", {{"top", "10%"},{"color","green"},{"index",15}});
             break;
 
         case 2:// New Post

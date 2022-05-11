@@ -20,8 +20,13 @@ void test_display() {
 }
 
 int main() {
+    if(_just_starting()){
+      _read_global_mem_from_file("state1.txt");
+    }
+    else{
     //cerr << "in main" << endl;
-    _read_global_mem_from_file("begin_mem");
+      _read_global_mem_from_file("begin_mem");
+    }
     //cerr << "read global_mem" << endl;
     state.read_from(_global_mem);
     //cerr << "used read_from" << endl;
