@@ -21,14 +21,14 @@ void State::read_from(char *mem) {
     ideaGen.read_from(mem);
 
     mem += ideaGen.size_in_bytes();
-    newPost_offset = idea_offset + ideaGen.size_in_bytes();
-
-    newPost.read_from(mem);
-    
-    mem += newPost.size_in_bytes();
-    account_offset = newPost_offset + newPost.size_in_bytes();
+    account_offset = idea_offset + ideaGen.size_in_bytes();
 
     account.read_from(mem);
+    
+    mem += account.size_in_bytes();
+    newPost_offset = account_offset + account.size_in_bytes();
+
+    newPost.read_from(mem);
 
     //mem += account.size_in_bytes(); // not implemented yet
 
