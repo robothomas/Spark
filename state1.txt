@@ -9,5 +9,5 @@ Example description that is longer than a title~
 00000000000000000000000000000000000000000000000
 00000000000000000000000000000000000000000000000
 Crea~
-Creative Writing~ Environmentalism~
-user~ email~ password~
+Creative Writing~Environmentalism~
+user~email~password~
