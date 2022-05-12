@@ -1,5 +1,5 @@
 0
-recent~difficulty~query~
+All-Time~Any~query~
 user~email~password~
 0
 5 7~

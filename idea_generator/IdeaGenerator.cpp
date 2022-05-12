@@ -44,7 +44,7 @@ string IdeaGenerator::getRecency() {
         return recent;
         
     } else {
-        cerr << "WARNING: Contains invalid recency. Returning All-Time by default" << endl;
+        cerr << "WARNING: Contains invalid recency '" << recent << "' Returning All-Time by default" << endl;
         recent = "All-Time";
         return recent;
     }
@@ -55,7 +55,7 @@ string IdeaGenerator::getDifficulty() {
         return difficulty;
 
     } else {
-        cerr << "WARNING: Contains invalid range. Returning Any by default.";
+        cerr << "WARNING: Contains invalid range '"<< difficulty <<"' Returning Any by default." << endl;
         difficulty = "Any";
         return difficulty;
     }
@@ -66,7 +66,7 @@ void IdeaGenerator::setDifficulty(string range) {
         difficulty = range;
 
     } else {
-        cerr << "WARNING: Invalid range. Setting to Any by default.";
+        cerr << "WARNING: Invalid range. Setting to Any by default." << endl;
         difficulty = "Any";
     }
 }
@@ -93,15 +93,15 @@ void IdeaGenerator::read_from(const char *mem) {
     int memPos = 0;
 
     recent_offset = 0;
-    recent = _get_tilde_terminated_string(mem);
-    memPos += countBeyondTilde(mem);
+    recent = _get_tilde_terminated_string(mem + memPos);
+    memPos += countBeyondTilde(mem + memPos);
     
     difficulty_offset = memPos;
-    difficulty = _get_tilde_terminated_string(mem);
-    memPos += countBeyondTilde(mem);
+    difficulty = _get_tilde_terminated_string(mem + memPos);
+    memPos += countBeyondTilde(mem + memPos);
 
     query_offset = memPos;
-    searchQuery = _get_tilde_terminated_string(mem);
+    searchQuery = _get_tilde_terminated_string(mem + memPos);
 }
 
 void IdeaGenerator::write_to(char *mem) {
