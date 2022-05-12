@@ -152,9 +152,10 @@ int Account::get_password_offset() {
 }
 
 int Account::size_in_bytes(){
-    int size = user.size();
-    size += email.size();
-    size += password.size();
+    int size = user.size() + 1;
+    size += email.size() + 1;
+    size += password.size() + 1;
+    size++; // accounts for the newline
     return size;
 }
 
@@ -163,18 +164,17 @@ void Account::read_from(char* mem){
     user_offset = 0;
     user = _get_tilde_terminated_string(mem);
     mem += user.size() + 1;
-    password_offset = user.size() + 1;
-    password = _get_tilde_terminated_string(mem);
-    mem += password.size() + 1;
-    email_offset = password_offset + password.size() + 1;
+    email_offset = user.size() + 1;
     email = _get_tilde_terminated_string(mem);
+    mem += email.size() + 1;
+    password_offset = email_offset + email.size() + 1;
+    password = _get_tilde_terminated_string(mem);
 }
 void Account::write_to(char* mem){
     _put_tilde_terminated_string(user, mem);
     mem += user.length() + 1;
-    _put_tilde_terminated_string(password, mem);
-    mem += password.length() + 1;
     _put_tilde_terminated_string(email, mem);
     mem += email.length() + 1;
-   
+    _put_tilde_terminated_string(password, mem);
+    mem += password.length() + 1;
 }
