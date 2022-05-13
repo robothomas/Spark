@@ -25,7 +25,7 @@ IdeaGenerator.o: idea_generator/IdeaGenerator.cpp idea_generator/IdeaGenerator.h
 update.o: state/update.cpp state/State.h
 	g++ -Wall -c state/update.cpp
 
-display.o: display.cpp display.h
+display.o: display.cpp
 	g++ -Wall -c display.cpp
 
 test_display.o: test_display.cpp
