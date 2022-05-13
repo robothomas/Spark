@@ -95,6 +95,15 @@ int Post::get_id() {
     return id;
 }
 
+string Post::getCommunityIDs() {
+    string ids = "";
+    for (int i = 0; i < communityNum; i++) {
+        ids = ids + to_string(communityIDs[i]) + ' ';
+    }
+
+    return ids;
+}
+
 string Post::get_title() {
     return title;
 }
@@ -107,7 +116,7 @@ void Post::assignID(int id_num) {
     id = id_num;
 }
 
-void Post::read_from(char* mem){
+void Post::read_from(const char* mem){
     int memPos = 0;
 
     id_offset = memPos;
@@ -147,7 +156,7 @@ void Post::read_from(char* mem){
 
 void Post::write_to(char *mem) {
     _put_int(id, mem, 2);
-    mem += 2;
+    mem += 3;
 
     *mem = '\n';
     mem++;

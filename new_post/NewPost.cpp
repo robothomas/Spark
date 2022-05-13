@@ -13,11 +13,25 @@ NewPost::~NewPost() {
     delete [] communities;
 }
 
-int NewPost::getQueryOffset() const{
+string NewPost::getQuery() {
+    return query;
+}
+
+string NewPost::getCommunities() {
+    string allCommunities = "";
+    
+    for (int i = 0; i < communityNum; i++) {
+        allCommunities = allCommunities + communities[i] + ' ';
+    }
+
+    return allCommunities;
+}
+
+int NewPost::getQueryOffset() const {
     return query_offset;
 }
 
-int NewPost::getCommunityStringOffset(int communityIndex) const{
+int NewPost::getCommunityStringOffset(int communityIndex) const {
     int offset = communityStringOffset;
 
     for (int i = 0; i < communityIndex; i++) {
@@ -143,18 +157,26 @@ int NewPost::size_in_bytes() {
     return size;
 }
 
-void NewPost::read_from(char *mem) {
-    //Post::read_from(mem);
+void NewPost::read_from(const char *mem) {
+    cerr << "mem start: " << *mem << *(mem + 1) << *(mem + 2) << endl;
+    Post::read_from(mem);
+    cerr << "communityNum: " << communityNum << endl;
+    cerr << "in new post" << endl;
     int memPos = Post::size_in_bytes();
-
     query_offset = memPos;
+
+    cerr << "current mem: " << *(mem + memPos) << *(mem + memPos + 1) << *(mem + memPos + 2) << endl;
     query = _get_tilde_terminated_string(mem + memPos);
+    cerr << "got query string" << endl;
+
     memPos = query.size() + 2;
     
     communityStringOffset = memPos;
-
     delete [] communities;
+    cerr << "after delete" << endl;
     communities = new string[communityNum];
+
+    cerr << "before for" << endl;
 
     for (int i = 0; i < communityNum; i++) {
         communities[i] = _get_tilde_terminated_string(mem + memPos);

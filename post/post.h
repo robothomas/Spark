@@ -31,10 +31,11 @@ class Post {
         int get_id();
         int size_in_bytes();
         int getCommunityNum();
+        string getCommunityIDs();
         string get_title();
         Text get_description();
         void assignID(int id_num);
-        void read_from(char* mem);
+        void read_from(const char* mem);
         void write_to(char* mem);
 };
 
