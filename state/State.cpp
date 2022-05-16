@@ -40,7 +40,7 @@ void State::read_from(char *mem) {
 
     //cerr << "ID: " << newPost.get_id() << endl;
     //cerr << "Community IDs: " << newPost.getCommunityIDs() << endl;
-   /// cerr << "Title: " << newPost.get_title() << endl;
+    //cerr << "Title: " << newPost.get_title() << endl;
     //cerr << "Description: " << newPost.get_description().getText() << endl;
     //cerr << "Community query: " << newPost.getQuery() << endl;
     //cerr << "Communities: " << newPost.getCommunities() << endl;

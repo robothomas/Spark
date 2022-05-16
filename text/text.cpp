@@ -135,8 +135,10 @@ bool Text::isDefault() {
 }
 
 int Text::size_in_bytes() {
-    int size = (len + 2) + 3 * (len + 1); // (len + 1) is the tilde terminated text, and 3 * (len + 2) refers to the three bool arrays
-
+    int textLength = findLength(text);
+    int size = textLength + 1; // length of the overall text + tilde
+    size++; // newline
+    size += 3 * (textLength + 1); // length of text for bools + newline char
     return size;
 }
 
@@ -195,7 +197,12 @@ void Text::setDefault(int length, int sizeFont) {
 
 void Text::setText() {
     for (int i = 0; i < len; i++) {
-        text[i] = ' ';
+        if (i + 1 == len) {
+            text[i] = '\0';
+            
+        } else {
+            text[i] = ' ';
+        }
     }
 }
 
