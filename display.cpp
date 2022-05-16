@@ -35,7 +35,7 @@ void addRatingArray(int rating) {
 
 void display(State &state) {
     _add_yaml("PhoneView.yaml"); // always here regardless of the panel - the main view
-    
+
     switch(state.panelType) {
         case 0: // Idea Generator
             _add_yaml("searchBar.yaml", {{"top", "50%"}, {"query", state.get_ideaGen_offset() + state.ideaGen.getQueryOffset()}});
@@ -45,27 +45,27 @@ void display(State &state) {
  
         case 1: //Community search
             _add_yaml("searchBar.yaml", {{"top", "10%"}, {"query", 226}});
-            _add_yaml("previewCommunity.yaml", {{"top", "20%"},{"color","blue"},{"index",15}});
-            _add_yaml("previewCommunity.yaml", {{"top", "25%"},{"color","red"},{"index",45}});
-            _add_yaml("previewCommunity.yaml", {{"top", "30%"},{"color","yellow"},{"index",15}});
-            _add_yaml("previewCommunity.yaml", {{"top", "35%"},{"color","green"},{"index",15}});
+            _add_yaml("previewCommunity.yaml", {{"top", "20%"},{"color","blue"},{"index",268}});
+            _add_yaml("previewCommunity.yaml", {{"top", "25%"},{"color","red"},{"index", 285}});
+            _add_yaml("previewCommunity.yaml", {{"top", "30%"},{"color","yellow"},{"index", 268}});
+            _add_yaml("previewCommunity.yaml", {{"top", "35%"},{"color","green"},{"index",285}});
             break;
 
         case 2:// New Post
             _add_yaml("searchBar.yaml", {{"top", "5%"}, {"query", state.get_newPost_offset() + state.newPost.getQueryOffset()}});
-            _add_yaml("new_post/postCommunity.yaml", {{"width", "33%"}, {"left", "10%"}, {"name", 226}});
-            _add_yaml("new_post/postCommunity.yaml", {{"width", "36%"}, {"left", "45%"}, {"name", 244}});
-            _add_yaml("textBox.yaml", {{"top", "25%"}, {"height", "8%"}, {"fontSize", 18}, {"text_index", state.get_newPost_offset() + state.newPost.getTitleOffset()}});
-            _add_yaml("textBox.yaml", {{"top", "35%"}, {"height", "33%"}, {"fontSize", 15}, {"text_index", state.get_newPost_offset() + state.newPost.getDescriptionOffset()}});
+            _add_yaml("new_post/postCommunity.yaml", {{"width", "33%"}, {"left", "10%"}, {"name", 285}});
+            _add_yaml("new_post/postCommunity.yaml", {{"width", "36%"}, {"left", "45%"}, {"name", 268}});
+            _add_yaml("textBox.yaml", {{"top", "25%"}, {"height", "8%"}, {"fontSize", 18}, {"text_index", 50/*state.get_newPost_offset() + state.newPost.getTitleOffset()*/}});
+            _add_yaml("textBox.yaml", {{"top", "35%"}, {"height", "33%"}, {"fontSize", 15}, {"text_index", 70/*state.get_newPost_offset() + state.newPost.getDescriptionOffset()*/}});
             addRatingArray(3);
+            _add_yaml("add_post_button.yaml");
             break;
 
         case 3: // Account
             _add_yaml("accountTemplate.yaml", {{"user", state.get_account_offset() + state.account.get_user_offset()}, {"email", state.get_account_offset() + state.account.get_email_offset()}});
             break;
 
-        case 4: 
-
+        case 4: //Post
             break;
 
         case 5: // Search Results
@@ -73,7 +73,7 @@ void display(State &state) {
             break;
 
         default:
-            _add_yaml("postTemplate.yaml", {{"title", 7}, {"description", 25}});
+            //_add_yaml("postTemplate.yaml", {{"title", 7}, {"description", 25}});
             break;
     }
 

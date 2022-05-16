@@ -45,7 +45,7 @@ void State::read_from(char *mem) {
     //cerr << "Community query: " << newPost.getQuery() << endl;
     //cerr << "Communities: " << newPost.getCommunities() << endl;
 
-    mem += account.size_in_bytes(); // not implemented yet
+    mem += account.size_in_bytes();
 
     community.read_from(mem);
     
@@ -66,10 +66,10 @@ void State::write_to(char *mem) {
         case 1:
             break;
         case 2://New Post
-            //newPost.write_to(mem);
+            newPost.write_to(mem);
             break;
         case 3://Account
-            //account.write_to(mem);
+            account.write_to(mem);
             break;
         case 4:
             break;
