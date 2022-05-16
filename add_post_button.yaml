@@ -1,0 +1,29 @@
+       - Button:
+           style:
+             width: 20%
+             height: 7.5%
+             top: 80%
+             left: 40%
+             backgroundColor: white
+             borderWidth: 2
+             borderRadius: 25
+           on_touch: 
+             backgroundColor: lightgray
+           id: menu_4  
+           children:
+            - View:
+               style:
+                 height: 7.5%
+                 width: 32.5%
+                 top: 47.5%
+                 left: 32.5%
+                 backgroundColor: green
+                 borderRadius: 50
+            - View:
+               style:
+                 height: 50%
+                 width: 3.5%
+                 top: 20%
+                 left: 47.5%
+                 backgroundColor: green  
+                 borderRadius: 50
