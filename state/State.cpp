@@ -36,7 +36,7 @@ void State::read_from(char *mem) {
     mem += account.size_in_bytes();
     newPost_offset = account_offset + account.size_in_bytes();
 
-    newPost.read_from(mem);
+    //newPost.read_from(mem);
 
     cerr << "ID: " << newPost.get_id() << endl;
     cerr << "Community IDs: " << newPost.getCommunityIDs() << endl;
