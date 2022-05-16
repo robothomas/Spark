@@ -12,7 +12,7 @@ class Community{
     int len;
     string title;
     Text* description;
-    Post* posts[];
+    Post* posts;
 
 public:
     //Constructors

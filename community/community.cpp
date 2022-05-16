@@ -12,21 +12,21 @@ Community::Community(){
     title = t;
     Text d = Text();
     description = &d;
-    *posts = new Post[len]; 
+    posts = new Post[len]; 
 }
 Community::Community(int i, string t, Text *d){
     id = i; 
     len = 1;
     title = t;
     description = d;
-    *posts = new Post[len]; 
+    posts = new Post[len]; 
 }
 Community::Community(const Community &c){
     id = c.id;
     len = c.len;
     title = c.title;
     description = c.description;
-    *posts = new Post[len]; 
+    posts = new Post[len]; 
     for(int i = 0; i < len; i++){
         posts[i] = c.posts[i];
     }
@@ -36,7 +36,7 @@ Community& Community::operator=(const Community &c){
     len = c.len;
     title = c.title;
     description = c.description;
-    *posts = new Post[len]; 
+    posts = new Post[len]; 
     for(int i = 0; i < len; i++){
         posts[i] = c.posts[i];
     }
@@ -67,19 +67,19 @@ void Community::change_description(Text *d){
 //Alter posts
 void Community::add_post(Post *p){
     int i = get_open_id();
-    posts[i] = p; 
+    posts[i] = *p; 
 }
 void Community::remove_post(int id){
-    posts[id] = 0;
+    delete &posts[id];
 }
 Post* Community::get_post(int id){
-    return posts[id];
+    return &posts[id];
 }
 
 //post array
 int Community::get_open_id(){
     for(int i = 0; i < len; i++){
-        if(posts[i] == 0){
+        if(posts[i].get_id() == 0){
             return i;
         }
     }
@@ -90,10 +90,10 @@ void Community::expand_posts(){
     len = len * 2;
     Post* tmp = new Post[len];
     for(int i = 0; i < len; i++){
-        tmp[i] = *posts[i];
+        tmp[i] = posts[i];
     }
-    delete *posts; 
-    *posts = tmp;
+    delete posts;
+    posts = tmp;
 }
 
 //Read/write
@@ -107,7 +107,7 @@ void Community::read_from(char *mem){
     mem++;
     title = _get_tilde_terminated_string(mem);
     mem += title.size() + 1;
-    description->read_from(mem);
+    //description->read_from(mem);
 }
 void Community::write_to(char *mem){
     _put_int(id, mem, 2);

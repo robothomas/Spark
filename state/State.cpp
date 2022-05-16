@@ -45,9 +45,9 @@ void State::read_from(char *mem) {
     //cerr << "Community query: " << newPost.getQuery() << endl;
     //cerr << "Communities: " << newPost.getCommunities() << endl;
 
-    //mem += account.size_in_bytes(); // not implemented yet
+    mem += account.size_in_bytes(); // not implemented yet
 
-    //community.read_from(mem);
+    community.read_from(mem);
     
     //results.read_from(f);
 }
@@ -84,4 +84,4 @@ void State::write_to(char *mem) {
     //account.write_to(mem);
     //results.write_to(mem);
     //ideaGen.write_to(mem);
-}
+} 
